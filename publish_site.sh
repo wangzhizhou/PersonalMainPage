@@ -30,7 +30,7 @@ echo "Generating site"
 hugo -s "${SITE_ROOT}" -e production
 
 echo "Updating gh-pages branch"
-cd ${SITE_PUB_DIR} && echo "$base_url" > ${SITE_PUB_DIR}/CNAME && git add --all && git commit -m "Publishing to gh-pages (publish.sh)"
+cd ${SITE_PUB_DIR} && git add --all && git commit -m "Publishing to gh-pages (publish.sh)"
 
 echo "Pushing to github"
 cd - 
