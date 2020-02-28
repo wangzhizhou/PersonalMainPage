@@ -19,7 +19,7 @@ git worktree prune
 rm -rf .git/worktrees/${SITE_PUB_DIR}
 
 echo "Checking out gh-pages branch into public"
-git worktree add -B gh-pages${SITE_PUB_DIR} origin/gh-pages
+git worktree add -B gh-pages ${SITE_PUB_DIR} origin/gh-pages
 
 echo "Removing existing files"
 rm -rf ${SITE_PUB_DIR}/*
