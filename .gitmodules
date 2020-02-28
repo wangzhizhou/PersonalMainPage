@@ -1,0 +1,3 @@
+[submodule "Orz/themes/personal"]
+	path = Orz/themes/personal
+	url = https://github.com/bjacquemet/personal-web.git
