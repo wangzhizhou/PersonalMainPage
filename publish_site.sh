@@ -7,7 +7,7 @@ then
     exit 1;
 fi
 
-SITE_ROOT="Orz"
+SITE_ROOT="./Orz"
 SITE_PUB_DIR="${SITE_ROOT}/public"
 SITE_CONTENT_DIR="${SITE_ROOT}/content"
 SITE_THEME_DIR="${SITE_ROOT}/themes"
