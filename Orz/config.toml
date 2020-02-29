@@ -2,7 +2,7 @@ baseURL = "https://www.jokerhub.cn"
 languageCode = "en-us"
 title = "Orz"
 theme = "personal"
-copyright="©王志舟"
+copyright="版权信息：©王志舟"
 googleAnalytics = ""
 enableEmoji=true
 enableRobotsTXT=true
@@ -34,14 +34,14 @@ pygmentsCodeFences=true
   # Define how your sections will be called
   # when automatically pulled. For instance in the 404 page
   post = "博客"
-  portfolio = "project"
+  about = "关于我"
 
 [params.sidebar]
   backgroundImage = '' # header background image - default "/images/default_sidebar.jpg" - Photo by Tim Marshall on Unsplash
   gradientOverlay = 'rgba(0,0,0,0.7),rgba(0,0,0,0.2)' # default: rgba(0,0,0,0.4),rgba(0,0,0,0.4)
   logo = "/images/joker_young.png" # - default "/images/edna-west.jpg"
 [params.assets]
-  favicon = ""
+  favicon = "/images/favicon.ico"
   customCSS = ""
 
 [params.social]
