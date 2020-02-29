@@ -15,4 +15,6 @@ draft: false
 
 - 我还喜欢玩我的世界这款游戏，并开了自己的私人服务器 - **[Minecraft](https://minecraft.jokerhub.cn)**
 
-- 我还想成为一名`Youtuber` - **[youtuber](https://youtuber.jokerhub.cn)**
+- 我还想成为一名Youtuber - **[youtuber](https://youtuber.jokerhub.cn)**
+
+- 我还想成立自己的公司或者工作室，我靠，我想的可真够多的。😅
