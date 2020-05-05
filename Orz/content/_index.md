@@ -17,4 +17,6 @@ draft: false
 
 - 我还想成为一名Youtuber - **[youtuber](https://youtuber.jokerhub.cn)**
 
+- iOS平台Swift开发技能： - **[SwiftUI](https://swiftui.jokerhub.cn)**
+
 - 我还想成立自己的公司或者工作室，我靠，我想的可真够多的。😅
