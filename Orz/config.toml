@@ -21,6 +21,10 @@ pygmentsCodeFences=true
   hrefTargetBlank = true
 
 [params]
+  icp = "京ICP备18007462号-2"
+  icp_link = "https://beian.miit.gov.cn"
+  bpns = "京公网安备号"
+  bpns_link = "http://www.beian.gov.cn"
   breadcrumb = true
   accentColor = "#FD3519"
   mainSections = ['post'] # values: ['post', 'portfolio'] only accept one section, to be displayed bellow 404
