@@ -1,0 +1,29 @@
+name: 部署到GitPages
+run-name: ${{ github.actor }} 触发
+on:
+  push:
+    branches: ["master"]
+    paths: ["Orz/**"]
+
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 安装Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.108.0'
+          extended: true
+      - name: 拉取仓库代码
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: 运行部署脚本
+        env:
+          DEPLOY_TYPE: github
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          ./publish_site.sh
