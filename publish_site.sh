@@ -34,5 +34,9 @@ cd ${SITE_PUB_DIR} && git add --all && git commit -m "Publishing to gh-pages (pu
 echo "Pushing to github"
 cd - 
 git push -uf --all
-open "http://www.jokerhub.cn"
+
+command -v open > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    open "http://www.jokerhub.cn"
+fi
 
