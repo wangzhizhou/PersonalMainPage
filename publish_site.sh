@@ -35,7 +35,8 @@ echo "Pushing to github"
 cd - 
 git push -uf --all
 
-command -v open > /dev/null 2>&1
+command -v open # > /dev/null 2>&1
+echo $?
 if [ $? -eq 0 ]; then
     open "http://www.jokerhub.cn"
 fi
