@@ -14,6 +14,7 @@ SITE_THEME_DIR="${SITE_ROOT}/themes"
 
 echo "Deleting old publication"
 rm -rf ${SITE_PUB_DIR}
+git fetch
 git worktree prune
 rm -rf .git/worktrees/${SITE_PUB_DIR}
 
