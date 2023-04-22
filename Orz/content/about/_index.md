@@ -1,5 +1,5 @@
 ---
-title: "个人简介"
+title: "👨🏻‍💻 个人简介"
 date: 2020-02-29T21:52:53+08:00
 draft: false
 ---
@@ -14,6 +14,6 @@ draft: false
 
 我还想成为一名Youtuber - **[youtuber](https://youtuber.jokerhub.cn)**
 
-iOS平台Swift开发技能： - **[Swift](https://swift.jokerhub.cn)**
+iOS平台Swift开发技能 - **[Swift](https://swift.jokerhub.cn)**
 
 我还想成立自己的公司或者工作室，我靠，我想的可真够多的。😅

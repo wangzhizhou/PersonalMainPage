@@ -42,8 +42,8 @@ pygmentsCodeFences=true
   about = "关于我"
 
 [params.sidebar]
-  backgroundImage = '' # header background image - default "/images/default_sidebar.jpg" - Photo by Tim Marshall on Unsplash
-  gradientOverlay = 'rgba(0,0,0,0.7),rgba(0,0,0,0.2)' # default: rgba(0,0,0,0.4),rgba(0,0,0,0.4)
+  backgroundImage = '/images/sidebar.png' # header background image - default "/images/default_sidebar.jpg" - Photo by Tim Marshall on Unsplash
+  gradientOverlay = 'rgba(0,0,0,0.1),rgba(0,0,0,0.1)' # default: rgba(0,0,0,0.4),rgba(0,0,0,0.4)
   logo = "/images/joker_young.png" # - default "/images/edna-west.jpg"
 [params.assets]
   favicon = "/images/favicon.ico"
@@ -63,20 +63,20 @@ pygmentsCodeFences=true
 
 [params.contact]
   email = "824219521@qq.com"
-  text= "邮件联系" # text of the contact link in the sidebar. If email params.contact.email is defined
+  text= "✉️ 邮件联系" # text of the contact link in the sidebar. If email params.contact.email is defined
 
 [menu]
 
 [[menu.main]]
   identifier = "blog"
-  name = "我的博客"
+  name = "📔 我的博客"
   title = "我的博客"
   url = "/post/"
   weight = 100
 
 [[menu.main]]
   identifier = "about"
-  name = "个人简介"
+  name = "🙍🏻‍♂️ 个人简介"
   title = "个人简介"
   url = "/about/"
   weight = 120
