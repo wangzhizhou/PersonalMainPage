@@ -1,2 +1,6 @@
 .DS_Store
 Orz/public
+.hugo_build.lock
+public.tar.gz
+_gen/
+resources/
