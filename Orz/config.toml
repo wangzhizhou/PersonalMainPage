@@ -51,9 +51,9 @@ pygmentsCodeFences=true
 
 [params.social]
   github = "https://github.com/wangzhizhou"
-  twitter = "https://twitter.com/w_z_z_1991"
-  linkedin = "https://www.linkedin.com/in/wangzhizhou"
-  facebook = "https://www.facebook.com/profile.php?id=100018721351347"
+  # twitter = "https://twitter.com/w_z_z_1991"
+  # linkedin = "https://www.linkedin.com/in/wangzhizhou"
+  # facebook = "https://www.facebook.com/profile.php?id=100018721351347"
   youtube = "https://www.youtube.com/channel/UCjZI4uZWSEt-bYFTbP0zB3A?view_as=subscriber"
   # medium = "https://medium.com/"
   # codepen = "https://codepen.io/"
@@ -63,24 +63,23 @@ pygmentsCodeFences=true
 
 [params.contact]
   email = "824219521@qq.com"
-  text= "电子邮件" # text of the contact link in the sidebar. If email params.contact.email is defined
-
+  text= "邮件联系" # text of the contact link in the sidebar. If email params.contact.email is defined
 
 [menu]
 
 [[menu.main]]
-  identifier = "about"
-  name = "关于我"
-  title = "关于我"
-  url = "/about/"
-  weight = -120
-
-[[menu.main]]
   identifier = "blog"
-  name = "博客"
+  name = "我的博客"
   title = "我的博客"
   url = "/post/"
-  weight = -100
+  weight = 100
+
+[[menu.main]]
+  identifier = "about"
+  name = "个人简介"
+  title = "个人简介"
+  url = "/about/"
+  weight = 120
 
 [sitemap]
   changefreq = "monthly"
