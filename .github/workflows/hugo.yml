@@ -2,7 +2,7 @@ name: 部署到GitPages
 run-name: ${{ github.actor }} 触发
 on:
   push:
-    branches: ["master"]
+    branches: ["main"]
     paths: ["Orz/**"]
 
   workflow_dispatch:
