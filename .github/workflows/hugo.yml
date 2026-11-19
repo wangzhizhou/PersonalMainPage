@@ -1,27 +1,80 @@
-name: 部署到GitPages
-run-name: ${{ github.actor }} 触发
+name: 构建并部署站点
+
+run-name: ${{ github.event_name }} · ${{ github.ref_name }}
+
 on:
   push:
     branches: ["main"]
-    paths: ["Orz/**"]
-
+    paths:
+      - "Orz/**"
+      - "scripts/**"
+      - ".gitmodules"
+      - "publish_site.sh"
+      - ".github/workflows/hugo.yml"
+  pull_request:
+    paths:
+      - "Orz/**"
+      - "scripts/**"
+      - ".gitmodules"
+      - "publish_site.sh"
+      - ".github/workflows/hugo.yml"
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pages: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  HUGO_VERSION: "0.165.0"
+
 jobs:
-  publish:
+  build:
+    name: 构建站点
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+
     steps:
-      - name: 安装Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: '0.108.0'
-          extended: true
-      - name: 拉取仓库代码
-        uses: actions/checkout@v3
+      - name: 拉取仓库与主题子模块
+        uses: actions/checkout@v4
         with:
           submodules: recursive
-      - name: 运行部署脚本
+
+      - name: 安装 Hugo (extended)
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: ${{ env.HUGO_VERSION }}
+          extended: true
+
+      - name: 解析域名并构建
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SITE_URL: ${{ vars.SITE_URL }}
+          SITE_CNAME: ${{ vars.SITE_CNAME }}
+        run: ./scripts/build_site.sh
+
+      - name: 检查构建产物
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          ./publish_site.sh
+          test -f Orz/public/index.html
+          if [ -n "${SITE_CNAME}" ]; then
+            test -f Orz/public/CNAME
+          fi
+          echo "站点地址: ${SITE_URL}"
+          echo "自定义域名: ${SITE_CNAME:-无}"
+          echo "文件数量: $(find Orz/public -type f | wc -l)"
+          du -sh Orz/public
+
+      - name: 部署到 gh-pages
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./Orz/public
+          publish_branch: gh-pages
+          force_orphan: true
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
+          commit_message: "deploy: ${{ github.sha }}"

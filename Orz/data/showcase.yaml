@@ -1,0 +1,365 @@
+# 产品与项目全览
+# 数据收集自 GitHub（个人账号 + 各组织）中有独立产品页 / 文档页的项目。
+# 维护方式：新增产品时在对应 group 的 products 下追加一条记录即可。
+#
+# 字段说明：
+#   group.site / github    组织主页与 GitHub 主页
+#   product.name           产品名称
+#   product.icon           卡片图标（emoji）
+#   product.status         状态标签，如版本号、「已上架」「持续更新」
+#   product.tagline        一句话介绍
+#   product.description    详细介绍
+#   product.features       功能要点列表
+#   product.tags           技术 / 分类标签
+#   product.links          外链列表；primary: true 的主按钮高亮显示
+
+updated: "2026-11-19"
+
+groups:
+  - id: personal
+    name: 个人项目
+    handle: wangzhizhou
+    icon: "👤"
+    description: 个人 GitHub 账号下带独立产品页、文档页或上架渠道的项目。
+    github: "https://github.com/wangzhizhou"
+    products:
+      - name: APNs Helper
+        icon: "🔔"
+        status: 已上架 App Store
+        tagline: APNs 推送调试与诊断工具
+        description: 面向 APNs 开发与联调的 macOS / iOS 工具，发送真实推送请求并还原完整请求、响应与错误信息，快速定位通知未送达或解码异常。
+        features:
+          - 支持 alert、background、voip、fileprovider、location、liveactivity 全部推送类型
+          - JSON Payload 工作台，按原样发送并内置各类推送模板
+          - .p8 JWT 凭据与多 App 预设，敏感数据保存在 Keychain
+          - 配套 APNs Helper Tester 验证接收、扩展与 Live Activity 链路
+        tags: ["macOS", "iOS", "Swift", "APNs"]
+        links:
+          - label: App Store
+            url: "https://apps.apple.com/cn/app/apns-helper/id6443608175"
+            primary: true
+          - label: Tester App
+            url: "https://apps.apple.com/cn/app/apns-helper-tester/id6444835507"
+          - label: 开发文档
+            url: "https://wangzhizhou.github.io/APNs-Helper/documentation/apns_helper_doc/"
+          - label: 源码
+            url: "https://github.com/wangzhizhou/APNs-Helper"
+
+      - name: Vapor 大型教程
+        icon: "🌊"
+        status: 在线阅读
+        tagline: 用 Swift 实践 Vapor 服务端开发
+        description: 对标 Flask Mega-Tutorial 的 Vapor 中文系列教程，从环境搭建、REST API、数据库、认证一路写到 Leaf 模板与生产部署。
+        features:
+          - 覆盖服务端开发完整链路：路由、Fluent、测试、认证与部署
+          - 包含 Web 端 Leaf 模板与 iOS 客户端示例
+          - 配套 GitHub 源码，可对照章节实践
+        tags: ["Swift", "Vapor", "教程"]
+        links:
+          - label: 在线阅读
+            url: "https://vapor.jokerhub.cn"
+            primary: true
+          - label: 源码
+            url: "https://github.com/wangzhizhou/The-Vapor-Mega-Tutorial"
+
+      - name: Joker Blog
+        icon: "📔"
+        status: 持续更新
+        tagline: 记录技术与生活的个人博客
+        description: 基于 MkDocs 的个人博客，记录 iOS / Swift、服务端、工具链，以及工作与生活中的各种体验和感悟。
+        features:
+          - 技术笔记与踩坑记录
+          - 工作、生活与 Geek 主题分类
+          - Markdown 写作，静态站点发布
+        tags: ["博客", "MkDocs", "Markdown"]
+        links:
+          - label: 博客主页
+            url: "https://blog.jokerhub.cn"
+            primary: true
+          - label: 源码
+            url: "https://github.com/wangzhizhou/JokerBlog"
+
+      - name: DebugSettings
+        icon: "🛠️"
+        status: 开源组件
+        tagline: iOS 调试设置面板组件
+        description: 用于简化 iOS App 内调试入口的 Swift 组件，把开关、按钮和子页面统一收拢到调试设置面板。
+        features:
+          - switch / button / subpage 三类调试入口
+          - 支持 Swift Package Manager 与 CocoaPods
+          - 提供 DocC 在线文档
+        tags: ["iOS", "Swift", "开发工具"]
+        links:
+          - label: 在线文档
+            url: "https://wangzhizhou.github.io/DebugSettings/documentation/debugsettings/"
+            primary: true
+          - label: 源码
+            url: "https://github.com/wangzhizhou/DebugSettings"
+
+  - id: easyopc
+    name: EasyOPC
+    handle: EasyIndie
+    icon: "🧑‍💻"
+    description: AI 时代一人公司基础设施建设，覆盖输入法、效率工具、游戏生产与内容流水线。
+    site: "https://opc.jokerhub.cn"
+    github: "https://github.com/EasyIndie"
+    products:
+      - name: 萤火虫 Lampyris
+        icon: "🪲"
+        status: v1.3.1
+        tagline: 默认离线的中文输入法
+        description: 默认离线的 macOS 中文输入法，五笔优先、拼音兜底，核心零网络、零遥测，安装包轻量且开源可审计。
+        features:
+          - 五笔与拼音混合输入，无需切换模式
+          - 默认离线、零遥测、无账号
+          - 原生 macOS 体验，Universal 包支持 macOS 13+
+          - Rust 引擎，后续规划 Windows / Linux / 移动端
+        tags: ["macOS", "输入法", "Rust"]
+        links:
+          - label: 产品页
+            url: "https://input.jokerhub.cn/"
+            primary: true
+          - label: 最新版本
+            url: "https://github.com/EasyIndie/EasyInputMethod/releases/latest"
+          - label: 源码
+            url: "https://github.com/EasyIndie/EasyInputMethod"
+
+      - name: 谷蹬 EasyAPIClock
+        icon: "⏰"
+        status: v1.0.0
+        tagline: DeepSeek API 峰谷价格时钟
+        description: 常驻 macOS 菜单栏的 DeepSeek API 峰谷价格时钟，显示当前价格时段、模型单价差异与下一次切换倒计时。
+        features:
+          - 按北京时间计算峰谷，覆盖周末与法定节假日
+          - 菜单栏倒计时与中等 / 强提醒
+          - 远程规则包更新，SHA-256 完整性校验
+          - 原生 SwiftUI，无需账号与 API Key
+        tags: ["macOS", "SwiftUI", "DeepSeek"]
+        links:
+          - label: 产品页
+            url: "https://easyindie.github.io/EasyAPIClock/"
+            primary: true
+          - label: 最新版本
+            url: "https://github.com/EasyIndie/EasyAPIClock/releases/latest"
+          - label: 源码
+            url: "https://github.com/EasyIndie/EasyAPIClock"
+
+      - name: EasyWork
+        icon: "🧰"
+        status: v0.4.4
+        tagline: 一份配置搞定开发环境
+        description: 用一份 config.toml 安装并管理 Shell、Git、Vim、gh 与 AI 工具的跨平台开发环境配置器，Go 静态单二进制。
+        features:
+          - 一条命令安装 / 更新，重复执行安全
+          - 模块化组件，支持按需启用
+          - doctor 环境诊断与设备防休眠
+          - macOS / Linux / Windows 通用
+        tags: ["Go", "CLI", "效率工具"]
+        links:
+          - label: 产品页
+            url: "https://easywork.jokerhub.cn/"
+            primary: true
+          - label: 最新版本
+            url: "https://github.com/EasyIndie/EasyWork/releases/latest"
+          - label: 源码
+            url: "https://github.com/EasyIndie/EasyWork"
+
+      - name: Puzzle Core
+        icon: "🎲"
+        status: 在线试玩
+        tagline: AI + Godot 自动化游戏生产
+        description: EasyGodot Game Factory 的试点游戏：3D 几何翻滚解谜，用一条可复现、可验证的流水线从关卡生成走到 Web 发布。
+        features:
+          - 20 关 3D 翻滚解谜，最优步数 2 → 18 渐进
+          - BFS 求解器自动校验关卡可解性
+          - 浏览器即开即玩，适配移动端触屏
+          - 关卡生成、质检、导出与发布全流程自动化
+        tags: ["Godot", "GDScript", "AI"]
+        links:
+          - label: 在线试玩
+            url: "https://easyindie.github.io/EasyGodot/"
+            primary: true
+          - label: 源码
+            url: "https://github.com/EasyIndie/EasyGodot"
+
+      - name: EasyUploader
+        icon: "🎬"
+        status: 自用工具
+        tagline: 自动化视频上传与发布
+        description: 面向个人频道的视频发布工具，通过 YouTube API 上传并管理自有视频，是自动化内容流水线的一部分。
+        features:
+          - YouTube API 上传与视频管理
+          - FastAPI API + Worker + React Web 三进程架构
+          - 面向 AI / 科技内容的自动化创作流水线
+        tags: ["Python", "FastAPI", "自动化"]
+        links:
+          - label: 产品页
+            url: "https://easyindie.jokerhub.cn/"
+            primary: true
+          - label: 源码
+            url: "https://github.com/EasyIndie/EasyContentCreator"
+
+      - name: 毕业生食谱
+        icon: "🥟"
+        status: 持续更新
+        tagline: 可离线查看的私人食谱库
+        description: 一个男生在家学做饭的私人食谱库与面食短视频脚本，附一个可离线访问的静态站点。
+        features:
+          - 私人食谱库与做饭记录
+          - 面食短视频脚本
+          - 离线可看的静态站点
+        tags: ["食谱", "静态站点", "内容"]
+        links:
+          - label: 在线站点
+            url: "https://easyindie.github.io/EasyVLog/"
+            primary: true
+          - label: 源码
+            url: "https://github.com/EasyIndie/EasyVLog"
+
+  - id: orzmc
+    name: OrzMC
+    handle: OrzMC
+    icon: "⛏️"
+    description: Minecraft 服务器生态：客户端、Paper 插件、世界备份与运维工具。
+    site: "https://orzmc.jokerhub.cn"
+    github: "https://github.com/OrzMC"
+    products:
+      - name: OrzMC 2.0
+        icon: "🧱"
+        status: v2.18.1
+        tagline: 跨平台 Minecraft 启动与部署
+        description: 一条命令安装与启动的 Minecraft 客户端启动 / 服务端部署工具，多版本并存并自动托管 Java 运行时。
+        features:
+          - 客户端 / 服务端一版本一目录，多版本并存
+          - 自动下载并托管 JRE，无需系统 Java
+          - 服务端一键部署、EULA 处理与优雅关闭
+          - macOS / Linux / Windows × x86_64 / arm64
+        tags: ["Minecraft", "Python", "CLI"]
+        links:
+          - label: 产品页
+            url: "https://orzmc.github.io/OrzPythonMC/"
+            primary: true
+          - label: PyPI
+            url: "https://pypi.org/project/orzmc-app/"
+          - label: 源码
+            url: "https://github.com/OrzMC/OrzPythonMC"
+
+      - name: OrzMCBackup
+        icon: "💾"
+        status: 持续更新
+        tagline: Minecraft 世界优化与备份
+        description: 按玩家活跃时间逐区块裁剪世界体积，并提供优化备份与全量备份的合并恢复，让服务器备份更小、更快、更安全。
+        features:
+          - 按 InhabitedTime 阈值裁剪低活跃区块
+          - 真实案例：18.6 GB 世界备份到 2.2 GB（-88.3%）
+          - 强制加载保护，多档阈值逐字节验证零非预期丢失
+          - Java / Rust 双实现，支持槽位级 merge 恢复
+        tags: ["Minecraft", "Kotlin", "Rust", "备份"]
+        links:
+          - label: 产品页
+            url: "https://orzmc.github.io/OrzMCBackup/"
+            primary: true
+          - label: 源码
+            url: "https://github.com/OrzMC/OrzMCBackup"
+
+      - name: OrzMC Plugin
+        icon: "🤖"
+        status: v1.0.30
+        tagline: Paper 服务器管理与多平台机器人
+        description: 统一 QQ / Telegram / Discord / 飞书 / 微信的 Paper 服务器管理插件，内置权限、白名单、跨服传送与运维能力。
+        features:
+          - 多平台 IM 统一接入，也支持内置直连通道
+          - 四级权限链、申请审核与白名单自动管理
+          - 跨服传送门、TNT 防护、传送弓等服务器管理
+          - 中英双语、29 项运行时可热加载配置
+        tags: ["Paper", "Java", "Minecraft"]
+        links:
+          - label: Hangar
+            url: "https://hangar.papermc.io/OrzMC/OrzMC"
+            primary: true
+          - label: Modrinth
+            url: "https://modrinth.com/plugin/orzmc"
+          - label: 源码
+            url: "https://github.com/OrzMC/OrzMCPlugin"
+
+      - name: OrzMC App
+        icon: "🖥️"
+        status: v0.1.7
+        tagline: macOS / iOS Minecraft 启动器
+        description: 面向 macOS / iOS 的 Minecraft Java Edition 启动器与辅助应用，与 OrzMC 的 CLI 和服务端工具共享能力。
+        features:
+          - macOS 原生 GUI 与 orzmc CLI 双形态
+          - Universal 二进制，支持 Intel 与 Apple Silicon
+          - iOS 版本与 TestFlight 发布流程
+          - 与客户端启动 / 服务端部署工具联动
+        tags: ["Swift", "macOS", "iOS"]
+        links:
+          - label: 项目文档
+            url: "https://orzmc.github.io/OrzMCApp/"
+            primary: true
+          - label: 最新版本
+            url: "https://github.com/OrzMC/OrzMCApp/releases/latest"
+          - label: 源码
+            url: "https://github.com/OrzMC/OrzMCApp"
+
+  - id: orzgeeker
+    name: OrzGeeker
+    handle: OrzGeeker
+    icon: "🎹"
+    description: 芯片音乐（KeyGen / Chiptune）与 Swift / Apple 平台工具链。
+    site: "https://music.jokerhub.cn"
+    github: "https://github.com/OrzGeeker"
+    products:
+      - name: OrzMusic
+        icon: "🎧"
+        status: 在线服务
+        tagline: 芯片音乐 Web 播放服务
+        description: 面向 KeyGen Music、芯片音乐和模块音乐的 Web 播放服务，整合曲库管理、搜索、播放队列与多格式音频播放。
+        features:
+          - 浏览器原生 / WASM 实时解码，服务端 PCM 缓存兜底
+          - 曲库扫描、搜索与播放队列
+          - Swift / Vapor 后端与深色 Web 播放器
+          - 外置 OrzAudioCore SDK 提供解码能力
+        tags: ["Swift", "Vapor", "Web"]
+        links:
+          - label: 在线播放
+            url: "https://music.jokerhub.cn"
+            primary: true
+          - label: 源码
+            url: "https://github.com/OrzGeeker/OrzMusic"
+
+      - name: OrzReader
+        icon: "📄"
+        status: 开源
+        tagline: 最简 iOS PDF 阅读器
+        description: 为充分利用屏幕空间而开发的极简 iOS PDF 阅读器，解决 iBooks 不能按屏幕宽度缩放的问题。
+        features:
+          - 极简 PDF 阅读体验
+          - 按屏幕宽度自适应缩放
+          - iOS 原生 Swift 实现
+        tags: ["iOS", "Swift", "PDF"]
+        links:
+          - label: 产品页
+            url: "https://orzgeeker.github.io/OrzReader/"
+            primary: true
+          - label: Wiki
+            url: "https://github.com/OrzGeeker/OrzReader/wiki"
+          - label: 源码
+            url: "https://github.com/OrzGeeker/OrzReader"
+
+      - name: OrzSwiftDoc
+        icon: "📚"
+        status: 示例项目
+        tagline: Swift DocC 文档发布示例
+        description: 演示如何用 Swift DocC 编写文档、在本地预览并发布到 GitHub Pages 的示例项目。
+        features:
+          - DocC 文档编写与构建
+          - GitHub Pages 自动发布
+          - 可作为 Swift 包文档模板
+        tags: ["Swift", "DocC", "文档"]
+        links:
+          - label: 在线文档
+            url: "https://orzgeeker.github.io/OrzSwiftDoc/documentation/orzswiftdoc/"
+            primary: true
+          - label: 源码
+            url: "https://github.com/OrzGeeker/OrzSwiftDoc"

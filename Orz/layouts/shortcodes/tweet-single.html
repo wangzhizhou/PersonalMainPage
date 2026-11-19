@@ -1,0 +1,24 @@
+{{- /*
+  覆盖主题中的 tweet-single 短代码。
+  主题原实现使用已被 Hugo 移除的 getJSON，这里改用 resources.GetRemote，
+  以兼容 Hugo 0.123+，在接口不可用时优雅降级为普通链接。
+*/ -}}
+{{- $pc := .Page.Site.Config.Privacy.Twitter -}}
+{{- if not $pc.Disable -}}
+  {{- if $pc.Simple -}}
+    {{ template "_internal/shortcodes/twitter_simple.html" . }}
+  {{- else -}}
+    {{- $tweetID := print (index .Params 0) -}}
+    {{- $url := printf "https://api.twitter.com/1.1/statuses/oembed.json?hide_thread=1&id=%s&dnt=%t" $tweetID $pc.EnableDNT -}}
+    {{- with try (resources.GetRemote $url) -}}
+      {{- with .Err -}}
+        {{- warnf "tweet-single: 无法获取推文 %s: %s" $tweetID . -}}
+        <a href="https://twitter.com/i/status/{{ $tweetID }}" target="_blank" rel="noopener">查看这条推文</a>
+      {{- else -}}
+        {{- with .Value -}}
+          {{- (. | transform.Unmarshal).html | safeHTML -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

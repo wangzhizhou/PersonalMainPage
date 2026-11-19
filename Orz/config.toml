@@ -1,26 +1,37 @@
-baseURL = "https://www.jokerhub.cn"
-languageCode = "en-us"
-title = "Orz"
+# baseURL 不在仓库里写死：生产构建由 scripts/build_site.sh
+# 从 SITE_URL / GitHub Pages 配置 / gh-pages CNAME 动态解析后传入。
+baseURL = "/"
+defaultContentLanguage = "zh-cn"
+locale = "zh-CN"
+title = "王志舟 · JokerHub"
 theme = "personal"
-copyright="©王志舟"
+copyright = "©王志舟"
 googleAnalytics = ""
-enableEmoji=true
-enableRobotsTXT=true
-pygmentsUseClasses=true
-pygmentsCodeFences=true
+enableEmoji = true
+enableRobotsTXT = true
+pygmentsUseClasses = true
+pygmentsCodeFences = true
 
 [params.intro]
   main = "🎯 王志舟(Joker)"
   sub = "昔日匣中三尺水，曾与明月斗青霜"
 
+[params.home]
+  eyebrow = "👋 你好，我是"
+  name = "王志舟"
+  alias = "Joker"
+  tagline = "独立开发者 · iOS / Swift / 全栈折腾"
+  description = "白天写 Swift，晚上折腾服务器和博客。这里汇集了我开发的产品、长期维护的站点，以及一些技术与生活记录。"
+  focus = ["Swift", "iOS", "Vapor", "Hugo"]
+  productsTitle = "🚀 精选产品"
+  productsSubtitle = "从个人项目到组织产品，先看几个最近在做的；完整清单见产品全览。"
+
 [taxonomies]
   design = "designs"
   tech = "techs"
 
-[blackfriday]
-  hrefTargetBlank = true
-
 [params]
+  description = "王志舟（Joker）的个人主页：独立开发者、iOS / Swift 开发者，这里展示我的产品、项目与文字。"
   icp = "京ICP备18007462号-2"
   icp_link = "https://beian.miit.gov.cn"
   bpns_icon = "/images/ghs.png"
@@ -28,10 +39,10 @@ pygmentsCodeFences=true
   bpns_link = "http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802035662"
   breadcrumb = true
   accentColor = "#FD3519"
-  mainSections = ['post'] # values: ['post', 'portfolio'] only accept one section, to be displayed bellow 404
+  mainSections = ['post'] # values: ['post', 'portfolio'] only accept one section, to be displayed below 404
 
 [params.notFound]
-  gopher = "/images/gopher.png" # checkout https://gopherize.me/
+  gopher = "/images/gopher.jpg" # checkout https://gopherize.me/
   h1 = 'Bummer!'
   p = "It seems that this page doesn't exist."
 
@@ -45,16 +56,17 @@ pygmentsCodeFences=true
   backgroundImage = '/images/sidebar.png' # header background image - default "/images/default_sidebar.jpg" - Photo by Tim Marshall on Unsplash
   gradientOverlay = 'rgba(0,0,0,0.1),rgba(0,0,0,0.1)' # default: rgba(0,0,0,0.4),rgba(0,0,0,0.4)
   logo = "/images/joker_young.png" # - default "/images/edna-west.jpg"
+
 [params.assets]
   favicon = "/images/favicon.ico"
-  customCSS = ""
+  customCSS = "/css/custom.css"
 
 [params.social]
   github = "https://github.com/wangzhizhou"
+  youtube = "https://www.youtube.com/@wangzhizhou"
   # twitter = "https://twitter.com/w_z_z_1991"
   # linkedin = "https://www.linkedin.com/in/wangzhizhou"
   # facebook = "https://www.facebook.com/profile.php?id=100018721351347"
-  youtube = "https://www.youtube.com/@wangzhizhou"
   # medium = "https://medium.com/"
   # codepen = "https://codepen.io/"
   # instagram = "https://www.instagram.com/"
@@ -63,9 +75,16 @@ pygmentsCodeFences=true
 
 [params.contact]
   email = "824219521@qq.com"
-  text= "✉️ 邮件联系" # text of the contact link in the sidebar. If email params.contact.email is defined
+  text = "✉️ 邮件联系" # text of the contact link in the sidebar. If email params.contact.email is defined
 
 [menu]
+
+[[menu.main]]
+  identifier = "products"
+  name = "🧩 产品全览"
+  title = "产品与项目全览"
+  url = "/products/"
+  weight = 90
 
 [[menu.main]]
   identifier = "blog"

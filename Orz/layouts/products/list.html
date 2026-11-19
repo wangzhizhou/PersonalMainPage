@@ -1,0 +1,68 @@
+{{ partial "header" .}}
+
+{{ $data := hugo.Data.showcase }}
+{{ $groups := $data.groups }}
+{{ $productCount := 0 }}
+{{ $linkCount := 0 }}
+{{ range $groups }}
+  {{ $productCount = add $productCount (len .products) }}
+  {{ range .products }}
+    {{ $linkCount = add $linkCount (len .links) }}
+  {{ end }}
+{{ end }}
+
+<section class="showcase-hero">
+  <p class="home-eyebrow">PRODUCTS &amp; PROJECTS</p>
+  <h1>{{ .Title }}</h1>
+  <div class="showcase-intro">{{ .Content }}</div>
+  <div class="showcase-stats" aria-label="项目统计">
+    <div class="showcase-stat">
+      <strong>{{ len $groups }}</strong>
+      <span>项目来源</span>
+    </div>
+    <div class="showcase-stat">
+      <strong>{{ $productCount }}</strong>
+      <span>产品 / 项目</span>
+    </div>
+    <div class="showcase-stat">
+      <strong>{{ $linkCount }}</strong>
+      <span>外链入口</span>
+    </div>
+  </div>
+</section>
+
+<nav class="showcase-nav" aria-label="项目分组">
+  {{ range $groups }}
+    <a href="#{{ .id }}">{{ .icon }} {{ .name }} <span>{{ len .products }}</span></a>
+  {{ end }}
+</nav>
+
+{{ range $groups }}
+  <section class="showcase-group" id="{{ .id }}">
+    <div class="showcase-group-head">
+      <div class="showcase-group-title">
+        <h2>{{ .icon }} {{ .name }}</h2>
+        <p>{{ .description }}</p>
+        <p class="showcase-group-handle">@{{ .handle }}</p>
+      </div>
+      <div class="showcase-group-links">
+        {{ with .site }}
+          <a class="showcase-link" href="{{ . }}" target="_blank" rel="noopener">官网 ↗</a>
+        {{ end }}
+        {{ with .github }}
+          <a class="showcase-link" href="{{ . }}" target="_blank" rel="noopener">GitHub ↗</a>
+        {{ end }}
+      </div>
+    </div>
+
+    <div class="showcase-grid">
+      {{ range .products }}
+        {{ partial "products/card" . }}
+      {{ end }}
+    </div>
+  </section>
+{{ end }}
+
+<p class="showcase-updated">项目清单整理自 GitHub，最近同步：{{ $data.updated }}。部分产品页位于自定义域名，访问速度可能受网络环境影响。</p>
+
+{{ partial "footer" .}}

@@ -1,6 +1,9 @@
 .DS_Store
 Orz/public
+Orz/resources
+Orz/.hugo_build.lock
 .hugo_build.lock
+.deploy/
 public.tar.gz
 _gen/
 resources/

@@ -1,0 +1,33 @@
+{{- /* 入参：产品数据 map（来自 data/showcase.yaml） */ -}}
+<article class="showcase-card">
+  <div class="showcase-card-head">
+    <span class="showcase-card-icon" aria-hidden="true">{{ .icon | default "📦" }}</span>
+    <div class="showcase-card-title">
+      <h3>{{ .name }}</h3>
+      {{ with .status }}<span class="showcase-status">{{ . }}</span>{{ end }}
+    </div>
+  </div>
+
+  <p class="showcase-tagline">{{ .tagline }}</p>
+  <p class="showcase-desc">{{ .description }}</p>
+
+  {{ with .features }}
+    <ul class="showcase-features">
+      {{ range . }}<li>{{ . }}</li>{{ end }}
+    </ul>
+  {{ end }}
+
+  {{ with .tags }}
+    <div class="showcase-tags">
+      {{ range . }}<span>{{ . }}</span>{{ end }}
+    </div>
+  {{ end }}
+
+  {{ with .links }}
+    <div class="showcase-links">
+      {{ range . }}
+        <a class="showcase-link{{ if .primary }} primary{{ end }}" href="{{ .url }}" target="_blank" rel="noopener">{{ .label }} ↗</a>
+      {{ end }}
+    </div>
+  {{ end }}
+</article>

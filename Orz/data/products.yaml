@@ -1,0 +1,93 @@
+# 首页精选产品
+# 完整产品清单见 Orz/data/showcase.yaml 与 /products/ 页面。
+#
+# 字段说明：
+#   name        产品名称（必填）
+#   tagline     一句话介绍
+#   description 详细介绍
+#   url         产品页 / 下载页地址
+#   icon        卡片图标（emoji）
+#   category    分类：App / 工具 / 游戏 / 站点 / 内容 ...
+#   status      状态标签，如“已上架”“持续更新”
+#   tags        标签列表
+#   featured    是否在首页展示
+
+- name: APNs Helper
+  tagline: 推送通知调试利器
+  description: 为开发者打造的 Apple Push Notification 调试工具，支持 macOS 与 iOS，快速验证推送证书、设备令牌与通知内容。
+  url: https://apps.apple.com/cn/app/apns-helper/id6443608175
+  icon: "🔔"
+  category: App
+  status: 已上架 App Store
+  tags: ["macOS", "iOS", "Swift"]
+  featured: true
+
+- name: 萤火虫 Lampyris
+  tagline: 默认离线的中文输入法
+  description: 五笔优先、拼音兜底的 macOS 中文输入法，核心零网络、零遥测，安装包轻量且开源可审计。
+  url: https://input.jokerhub.cn/
+  icon: "🪲"
+  category: App
+  status: 持续更新
+  tags: ["macOS", "输入法", "Rust"]
+  featured: true
+
+- name: EasyWork
+  tagline: 一份配置搞定开发环境
+  description: 用一份 config.toml 安装并管理 Shell、Git、Vim、gh 与 AI 工具的跨平台开发环境配置器，Go 静态单二进制。
+  url: https://easywork.jokerhub.cn/
+  icon: "🧰"
+  category: 工具
+  status: 持续更新
+  tags: ["Go", "CLI", "效率"]
+  featured: true
+
+- name: Puzzle Core
+  tagline: AI + Godot 自动化游戏生产
+  description: EasyGodot Game Factory 的试点游戏：3D 几何翻滚解谜，用一条可复现、可验证的流水线从关卡生成走到 Web 发布。
+  url: https://easyindie.github.io/EasyGodot/
+  icon: "🎲"
+  category: 游戏
+  status: 在线试玩
+  tags: ["Godot", "GDScript", "AI"]
+  featured: true
+
+- name: OrzMC 2.0
+  tagline: 跨平台 Minecraft 启动与部署
+  description: 一条命令安装与启动的 Minecraft 客户端启动 / 服务端部署工具，多版本并存并自动托管 Java 运行时。
+  url: https://orzmc.github.io/OrzPythonMC/
+  icon: "⛏️"
+  category: 工具
+  status: 持续更新
+  tags: ["Minecraft", "Python", "CLI"]
+  featured: true
+
+- name: OrzMusic
+  tagline: 芯片音乐 Web 播放服务
+  description: 面向 KeyGen Music、芯片音乐和模块音乐的 Web 播放服务，整合曲库管理、搜索、播放队列与多格式音频播放。
+  url: https://music.jokerhub.cn
+  icon: "🎧"
+  category: 站点
+  status: 在线服务
+  tags: ["Swift", "Vapor", "Web"]
+  featured: true
+
+- name: JokerHub 博客
+  tagline: 记录学习、工作与生活
+  description: 长期维护的个人技术博客，写 Swift、iOS 开发以及日常折腾的各种经验与踩坑记录。
+  url: https://blog.jokerhub.cn
+  icon: "📔"
+  category: 站点
+  status: 持续更新
+  tags: ["MkDocs", "写作", "技术"]
+  featured: true
+
+- name: Vapor 教程
+  tagline: 用 Swift 写服务端
+  description: 一份关于 Vapor 框架的 Swift 服务端开发教程，从路由、数据库到部署，记录完整的实践过程。
+  url: https://vapor.jokerhub.cn
+  icon: "🌊"
+  category: 内容
+  status: 在线阅读
+  tags: ["Swift", "Vapor", "后端"]
+  featured: true

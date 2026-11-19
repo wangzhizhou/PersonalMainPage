@@ -1,0 +1,21 @@
+{{- $home := .Site.Params.home -}}
+<section class="home-hero">
+  <p class="home-eyebrow">{{ $home.eyebrow | default "👋 你好，我是" }}</p>
+  <h1 class="home-title">
+    {{ $home.name | default "王志舟" }}
+    {{ with $home.alias }}<span>{{ . }}</span>{{ end }}
+  </h1>
+  <p class="home-tagline">{{ $home.tagline }}</p>
+  <p class="home-desc">{{ $home.description }}</p>
+
+  <div class="home-actions">
+    <a class="btn btn-primary" href="{{ "/products/" | relURL }}">🚀 浏览全部产品</a>
+    <a class="btn btn-ghost" href="{{ "/about/" | relURL }}">🙍🏻‍♂️ 个人简介</a>
+  </div>
+
+  {{ with $home.focus }}
+    <ul class="home-focus" aria-label="技术栈">
+      {{ range . }}<li>{{ . }}</li>{{ end }}
+    </ul>
+  {{ end }}
+</section>

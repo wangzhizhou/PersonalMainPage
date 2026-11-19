@@ -1,0 +1,18 @@
+{{- /* 入参：产品数据 map（来自 data/products.yaml） */ -}}
+<a class="product-card" href="{{ .url }}" target="_blank" rel="noopener">
+  <span class="product-icon" aria-hidden="true">{{ .icon | default "📦" }}</span>
+  <span class="product-body">
+    <span class="product-head">
+      <span class="product-name">{{ .name }}</span>
+      {{ with .status }}<span class="product-status">{{ . }}</span>{{ end }}
+    </span>
+    <span class="product-tagline">{{ .tagline }}</span>
+    <span class="product-desc">{{ .description }}</span>
+    {{ with .tags }}
+      <span class="product-tags">
+        {{ range . }}<span class="product-tag">{{ . }}</span>{{ end }}
+      </span>
+    {{ end }}
+    <span class="product-link">{{ with .category }}{{ . }}{{ else }}访问{{ end }} ↗</span>
+  </span>
+</a>
