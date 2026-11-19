@@ -27,6 +27,8 @@ pygmentsCodeFences = true
   ShowPostNavLinks = true
   ShowToc = true
   mainSections = ["post"]
+  hideFooter = true
+  blogURL = "https://blog.jokerhub.cn"
 
   [params.label]
     text = "JokerHub"
@@ -40,9 +42,12 @@ pygmentsCodeFences = true
     theme_color = "#0f172a"
     msapplication_TileColor = "#0f172a"
 
-  [params.footer]
-    hideCopyright = false
-    text = "[京ICP备18007462号-2](https://beian.miit.gov.cn) · [京公网安备 11010802035662号](http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802035662) · ![京公网安备](/images/ghs.png)"
+  [params.legal]
+    icp = "京ICP备18007462号-2"
+    icpLink = "https://beian.miit.gov.cn"
+    police = "京公网安备 11010802035662号"
+    policeLink = "http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802035662"
+    policeIcon = "/images/ghs.png"
 
   [params.home]
     eyebrow = "👋 你好，我是"
@@ -62,14 +67,17 @@ pygmentsCodeFences = true
 
 [[params.socialIcons]]
   name = "github"
+  title = "GitHub"
   url = "https://github.com/wangzhizhou"
 
 [[params.socialIcons]]
   name = "youtube"
+  title = "YouTube"
   url = "https://www.youtube.com/@wangzhizhou"
 
 [[params.socialIcons]]
   name = "email"
+  title = "Email"
   url = "mailto:824219521@qq.com"
 
 [menu]

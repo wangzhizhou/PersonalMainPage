@@ -43,6 +43,8 @@
 │   │   ├── index.html            # 自定义首页布局
 │   │   ├── 404.html              # 自定义 404
 │   │   ├── products/list.html    # 产品全览页布局
+│   │   ├── _partials/
+│   │   │   └── extend_footer.html # 自定义页脚
 │   │   └── partials/
 │   │       ├── home/             # 首页 Hero 与产品卡片
 │   │       └── products/         # 产品全览卡片
@@ -128,6 +130,8 @@ Orz/assets/css/extended/custom.css
 ```
 
 修改主题变量即可整体调整主色、背景和内容宽度。
+
+页脚使用 `Orz/layouts/_partials/extend_footer.html` 自定义，PaperMod 默认页脚通过 `hideFooter = true` 关闭；备案信息维护在 `Orz/config.toml` 的 `[params.legal]`。
 
 ## 维护产品展示
 
@@ -250,7 +254,7 @@ SITE_URL=https://example.com/ ./scripts/build_site.sh
 | 修改整体视觉与组件 | `Orz/assets/css/extended/custom.css` |
 | 修改域名 | GitHub **Settings → Pages → Custom domain**；构建时自动读取，无需改代码 |
 | 临时覆盖域名 | `SITE_URL=https://example.com/ ./scripts/build_site.sh` |
-| 修改备案信息 | `Orz/config.toml` 的 `[params.footer]` |
+| 修改页脚 / 备案信息 | `Orz/layouts/_partials/extend_footer.html` 与 `Orz/config.toml` 的 `[params.legal]` |
 
 ## 技术说明
 

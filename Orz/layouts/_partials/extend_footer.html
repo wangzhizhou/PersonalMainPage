@@ -1,0 +1,49 @@
+{{- /* 自定义页脚：覆盖 PaperMod 默认 footer，默认 footer 由 hideFooter 关闭 */ -}}
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-brand">
+      <a class="footer-logo" href="{{ "" | relLangURL }}">JokerHub<span>.</span></a>
+      <p>{{ site.Params.home.tagline }} · {{ site.Params.home.status }}</p>
+      <div class="footer-social">
+        {{ partial "social_icons.html" (dict "align" "left") }}
+      </div>
+    </div>
+
+    <nav class="footer-col" aria-label="页脚导航">
+      <p class="footer-heading">导航</p>
+      {{ range site.Menus.main }}
+        <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+      {{ end }}
+    </nav>
+
+    <div class="footer-col">
+      <p class="footer-heading">连接</p>
+      {{ range site.Params.socialIcons }}
+        <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title | default .name }} ↗</a>
+      {{ end }}
+      {{ with site.Params.blogURL }}
+        <a href="{{ . }}" target="_blank" rel="noopener noreferrer">博客 ↗</a>
+      {{ end }}
+    </div>
+  </div>
+
+  <div class="site-footer-bottom">
+    <p class="footer-copy">© {{ now.Year }} {{ site.Params.author | default "王志舟" }}</p>
+    <p class="footer-legal">
+      {{ with site.Params.legal.icp }}
+        <a href="{{ site.Params.legal.icpLink }}" target="_blank" rel="noopener">{{ . }}</a>
+      {{ end }}
+      {{ if and site.Params.legal.icp site.Params.legal.police }}<span aria-hidden="true">/</span>{{ end }}
+      {{ with site.Params.legal.police }}
+        <a href="{{ site.Params.legal.policeLink }}" target="_blank" rel="noopener">{{ . }}</a>
+      {{ end }}
+      {{ with site.Params.legal.policeIcon }}
+        <img src="{{ . | relURL }}" alt="京公网安备" width="14" height="14" loading="lazy" />
+      {{ end }}
+    </p>
+    <p class="footer-powered">
+      Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>
+      &amp; <a href="https://github.com/adityatelange/hugo-PaperMod" target="_blank" rel="noopener">PaperMod</a>
+    </p>
+  </div>
+</footer>
