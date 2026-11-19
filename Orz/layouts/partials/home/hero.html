@@ -1,21 +1,50 @@
 {{- $home := .Site.Params.home -}}
+{{- $groups := hugo.Data.showcase.groups -}}
+{{- $productCount := 0 -}}
+{{- range $groups }}{{ $productCount = add $productCount (len .products) }}{{ end -}}
 <section class="home-hero">
-  <p class="home-eyebrow">{{ $home.eyebrow | default "👋 你好，我是" }}</p>
-  <h1 class="home-title">
-    {{ $home.name | default "王志舟" }}
-    {{ with $home.alias }}<span>{{ . }}</span>{{ end }}
-  </h1>
-  <p class="home-tagline">{{ $home.tagline }}</p>
-  <p class="home-desc">{{ $home.description }}</p>
+  <div class="hero-copy">
+    <p class="hero-eyebrow">{{ $home.eyebrow | default "👋 你好，我是" }}</p>
+    <h1 class="hero-title">
+      {{ $home.name | default "王志舟" }}
+      {{ with $home.alias }}<span>{{ . }}</span>{{ end }}
+    </h1>
+    {{ with $home.status }}<p class="hero-status"><i></i>{{ . }}</p>{{ end }}
+    <p class="hero-tagline">{{ $home.tagline }}</p>
+    <p class="hero-desc">{{ $home.description }}</p>
 
-  <div class="home-actions">
-    <a class="btn btn-primary" href="{{ "/products/" | relURL }}">🚀 浏览全部产品</a>
-    <a class="btn btn-ghost" href="{{ "/about/" | relURL }}">🙍🏻‍♂️ 个人简介</a>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ "/products/" | relURL }}">查看产品</a>
+      <a class="btn btn-ghost" href="{{ "/about/" | relURL }}">关于我</a>
+    </div>
+
+    {{ with $home.focus }}
+      <ul class="hero-focus" aria-label="技术栈">
+        {{ range . }}<li>{{ . }}</li>{{ end }}
+      </ul>
+    {{ end }}
+
+    <div class="hero-social">
+      {{ partial "social_icons.html" (dict "align" "left") }}
+    </div>
   </div>
 
-  {{ with $home.focus }}
-    <ul class="home-focus" aria-label="技术栈">
-      {{ range . }}<li>{{ . }}</li>{{ end }}
-    </ul>
-  {{ end }}
+  <aside class="hero-card" aria-label="个人概览">
+    {{ with $home.avatar }}
+      <img class="hero-avatar" src="{{ . | relURL }}" alt="王志舟" width="120" height="120" />
+    {{ end }}
+    <div class="hero-card-name">{{ $home.name }} <span>{{ $home.alias }}</span></div>
+    <p class="hero-card-note">{{ $home.tagline }}</p>
+    <div class="hero-stats">
+      <div>
+        <strong>{{ len $groups }}</strong>
+        <span>项目来源</span>
+      </div>
+      <div>
+        <strong>{{ $productCount }}</strong>
+        <span>产品项目</span>
+      </div>
+    </div>
+    <a class="hero-card-link" href="{{ "/products/" | relURL }}">浏览全部产品 →</a>
+  </aside>
 </section>

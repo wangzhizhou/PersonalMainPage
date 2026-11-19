@@ -4,114 +4,98 @@ baseURL = "/"
 defaultContentLanguage = "zh-cn"
 locale = "zh-CN"
 title = "王志舟 · JokerHub"
-theme = "personal"
-copyright = "©王志舟"
-googleAnalytics = ""
+theme = "PaperMod"
+copyright = "© 王志舟"
 enableEmoji = true
 enableRobotsTXT = true
 pygmentsUseClasses = true
 pygmentsCodeFences = true
 
-[params.intro]
-  main = "🎯 王志舟(Joker)"
-  sub = "昔日匣中三尺水，曾与明月斗青霜"
-
-[params.home]
-  eyebrow = "👋 你好，我是"
-  name = "王志舟"
-  alias = "Joker"
-  tagline = "独立开发者 · iOS / Swift / 全栈折腾"
-  description = "白天写 Swift，晚上折腾服务器和博客。这里汇集了我开发的产品、长期维护的站点，以及一些技术与生活记录。"
-  focus = ["Swift", "iOS", "Vapor", "Hugo"]
-  productsTitle = "🚀 精选产品"
-  productsSubtitle = "从个人项目到组织产品，先看几个最近在做的；完整清单见产品全览。"
-
-[taxonomies]
-  design = "designs"
-  tech = "techs"
-
 [params]
   description = "王志舟（Joker）的个人主页：独立开发者、iOS / Swift 开发者，这里展示我的产品、项目与文字。"
-  icp = "京ICP备18007462号-2"
-  icp_link = "https://beian.miit.gov.cn"
-  bpns_icon = "/images/ghs.png"
-  bpns = "京公网安备号: 11010802035662"
-  bpns_link = "http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802035662"
-  breadcrumb = true
-  accentColor = "#FD3519"
-  mainSections = ['post'] # values: ['post', 'portfolio'] only accept one section, to be displayed below 404
+  keywords = ["王志舟", "Joker", "iOS", "Swift", "Vapor", "独立开发", "产品"]
+  author = "王志舟"
+  DateFormat = "2006-01-02"
+  defaultTheme = "auto"
+  disableThemeToggle = false
+  disableScrollToTop = false
+  ShowReadingTime = true
+  ShowWordCount = false
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowToc = true
+  mainSections = ["post"]
 
-[params.notFound]
-  gopher = "/images/gopher.jpg" # checkout https://gopherize.me/
-  h1 = 'Bummer!'
-  p = "It seems that this page doesn't exist."
+  [params.label]
+    text = "JokerHub"
 
-[params.sections]
-  # Define how your sections will be called
-  # when automatically pulled. For instance in the 404 page
-  post = "博客"
-  about = "关于我"
+  [params.assets]
+    favicon = "/images/favicon.ico"
+    favicon16x16 = "/images/favicon-16x16.png"
+    favicon32x32 = "/images/favicon-32x32.png"
+    apple_touch_icon = "/images/apple-touch-icon.png"
+    safari_pinned_tab = "/images/safari-pinned-tab.svg"
+    theme_color = "#0f172a"
+    msapplication_TileColor = "#0f172a"
 
-[params.sidebar]
-  backgroundImage = '/images/sidebar.png' # header background image - default "/images/default_sidebar.jpg" - Photo by Tim Marshall on Unsplash
-  gradientOverlay = 'rgba(0,0,0,0.1),rgba(0,0,0,0.1)' # default: rgba(0,0,0,0.4),rgba(0,0,0,0.4)
-  logo = "/images/joker_young.png" # - default "/images/edna-west.jpg"
+  [params.footer]
+    hideCopyright = false
+    text = "[京ICP备18007462号-2](https://beian.miit.gov.cn) · [京公网安备 11010802035662号](http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802035662) · ![京公网安备](/images/ghs.png)"
 
-[params.assets]
-  favicon = "/images/favicon.ico"
-  customCSS = "/css/custom.css"
+  [params.home]
+    eyebrow = "👋 你好，我是"
+    name = "王志舟"
+    alias = "Joker"
+    status = "独立开发者 · 在做一个人的产品工作室"
+    tagline = "iOS / Swift / 全栈折腾"
+    description = "白天写 Swift，晚上折腾服务器、博客和芯片音乐。这里汇集了我开发的产品、长期维护的站点，以及一些技术与生活记录。"
+    focus = ["Swift", "iOS", "Vapor", "Minecraft", "Chiptune"]
+    productsTitle = "🚀 精选产品"
+    productsSubtitle = "从 App 到站点，先看几个最近在做的；完整清单见产品全览。"
+    avatar = "/images/avatar.jpg"
 
-[params.social]
-  github = "https://github.com/wangzhizhou"
-  youtube = "https://www.youtube.com/@wangzhizhou"
-  # twitter = "https://twitter.com/w_z_z_1991"
-  # linkedin = "https://www.linkedin.com/in/wangzhizhou"
-  # facebook = "https://www.facebook.com/profile.php?id=100018721351347"
-  # medium = "https://medium.com/"
-  # codepen = "https://codepen.io/"
-  # instagram = "https://www.instagram.com/"
-  # gitlab = "https://gitlab.com/"
-  # keybase = "https://keybase.io/"
+  [params.contact]
+    email = "824219521@qq.com"
+    text = "✉️ 邮件联系"
 
-[params.contact]
-  email = "824219521@qq.com"
-  text = "✉️ 邮件联系" # text of the contact link in the sidebar. If email params.contact.email is defined
+[[params.socialIcons]]
+  name = "github"
+  url = "https://github.com/wangzhizhou"
+
+[[params.socialIcons]]
+  name = "youtube"
+  url = "https://www.youtube.com/@wangzhizhou"
+
+[[params.socialIcons]]
+  name = "email"
+  url = "mailto:824219521@qq.com"
 
 [menu]
 
 [[menu.main]]
   identifier = "products"
-  name = "🧩 产品全览"
-  title = "产品与项目全览"
+  name = "产品"
+  title = "产品与项目"
   url = "/products/"
-  weight = 90
+  weight = 10
 
 [[menu.main]]
   identifier = "blog"
-  name = "📔 我的博客"
-  title = "我的博客"
+  name = "文章"
+  title = "文章"
   url = "/post/"
-  weight = 100
+  weight = 20
 
 [[menu.main]]
   identifier = "about"
-  name = "🙍🏻‍♂️ 个人简介"
-  title = "个人简介"
+  name = "关于"
+  title = "关于我"
   url = "/about/"
-  weight = 120
+  weight = 30
 
 [sitemap]
   changefreq = "monthly"
   filename = "sitemap.xml"
   priority = 0.5
-
-[privacy]
-  [privacy.googleAnalytics]
-    anonymizeIP = true
-    disable = true
-    respectDoNotTrack = true
-    useSessionStorage = false
-  [privacy.twitter]
-    disable = false
-    enableDNT = true
-    simple = false

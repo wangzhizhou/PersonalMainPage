@@ -1,3 +1,4 @@
-[submodule "Orz/themes/personal"]
-	path = Orz/themes/personal
-	url = https://github.com/bjacquemet/personal-web.git
+[submodule "Orz/themes/PaperMod"]
+	path = Orz/themes/PaperMod
+	url = https://github.com/adityatelange/hugo-PaperMod
+	shallow = true

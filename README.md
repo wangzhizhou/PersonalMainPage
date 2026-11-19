@@ -2,62 +2,67 @@
 
 王志舟（Joker）的个人主页，同时作为个人产品与项目的展示入口。
 
-站点使用 [Hugo](https://gohugo.io/) + [Personal Web](https://github.com/bjacquemet/personal-web) 主题构建，最终以纯静态页面的形式部署在 GitHub Pages 上。
+站点使用 [Hugo](https://gohugo.io/) + [PaperMod](https://github.com/adityatelange/hugo-PaperMod) 构建，产品展示为主，博客为辅，最终以纯静态页面的形式部署在 GitHub Pages 上。
 
 - 线上域名：构建时自动读取仓库 **Settings → Pages** 的自定义域名；未配置时使用 `<owner>.github.io/<repo>/`
 - 备案信息：京ICP备18007462号-2
 
+## 设计方向
+
+- **产品优先**：首页围绕个人介绍、精选产品和产品全览展开
+- **博客为辅**：保留 `/post/` 文章入口，但不再是站点主结构
+- **现代视觉**：PaperMod 提供顶部导航、深浅色切换、响应式布局和 SEO 基础
+- **中文友好**：系统字体栈 + 16px 正文，避免依赖 Google Fonts
+- **可维护**：产品数据与视觉层分离，改内容不需要改模板
+
 ## 页面结构
 
-首页由三部分组成，全部由数据驱动，改内容不需要动模板：
-
-1. **个人 Hero**：姓名、一句话介绍、技术栈与行动按钮
-2. **产品与项目**：读取 `Orz/data/products.yaml` 自动生成产品卡片
-3. **关于本站 / 最新文章**：站点简介与博客文章列表（有文章时自动出现）
-
-此外还有：
-
-- `/products/`：产品与项目全览，汇总个人账号与各组织下有产品页的项目，含功能要点与外链
+- `/`：Hero 个人介绍、精选产品、关于本站、最近文章（有文章时出现）、联系入口
+- `/products/`：产品与项目全览，按个人账号与组织分组，展示功能要点与外链
 - `/about/`：个人简介与产品清单
-- `/post/`：博客列表
-- `/404.html`：404 页面（会带出最新一篇文章）
+- `/post/`：文章列表（博客为辅）
+- `/404.html`：自定义 404 页面
 
 ## 目录说明
 
 ```
 .
-├── Orz/                        # Hugo 站点根目录
-│   ├── config.toml             # 站点配置（信息、菜单、侧边栏、社交链接）
-│   ├── content/                # 页面内容（Markdown）
+├── Orz/                          # Hugo 站点根目录
+│   ├── config.toml               # 站点配置（PaperMod 参数、菜单、社交链接）
+│   ├── content/                  # 页面内容（Markdown）
+│   │   ├── _index.md             # 首页“关于本站”内容
+│   │   ├── about.md              # 关于我
+│   │   ├── products/_index.md    # 产品全览页内容
+│   │   └── post/_index.md        # 文章索引
 │   ├── data/
-│   │   ├── products.yaml       # 首页精选产品数据
-│   │   └── showcase.yaml       # 产品全览页数据（分组 / 功能 / 外链）
-│   ├── layouts/                # 项目级模板，会覆盖主题同名模板
-│   │   ├── index.html          # 首页布局
-│   │   ├── products/list.html  # 产品全览页布局
-│   │   ├── partials/home/      # 首页 Hero 与产品卡片
-│   │   ├── partials/products/  # 产品全览卡片
-│   │   ├── partials/head/      # SEO / meta 信息
-│   │   └── shortcodes/         # 兼容新版 Hugo 的短代码覆盖
+│   │   ├── products.yaml         # 首页精选产品数据
+│   │   └── showcase.yaml         # 产品全览页数据（分组 / 功能 / 外链）
+│   ├── assets/css/extended/
+│   │   └── custom.css            # 自定义设计系统与组件样式
+│   ├── layouts/
+│   │   ├── index.html            # 自定义首页布局
+│   │   ├── 404.html              # 自定义 404
+│   │   ├── products/list.html    # 产品全览页布局
+│   │   └── partials/
+│   │       ├── home/             # 首页 Hero 与产品卡片
+│   │       └── products/         # 产品全览卡片
 │   ├── static/
-│   │   ├── css/custom.css      # 首页、产品卡片与产品全览页样式
-│   │   ├── js/main.js          # 移动端菜单交互
-│   │   └── images/             # 图片资源
-│   └── themes/personal/        # 主题子模块，不要直接修改
+│   │   └── images/               # 头像、favicon、备案图标
+│   └── themes/PaperMod/          # 主题子模块，不要直接修改
 ├── scripts/
-│   ├── build_site.sh           # 解析域名并构建生产站点
-│   ├── resolve_site_url.py     # 从 Pages 配置 / CNAME 解析站点地址
-│   └── sync_github_products.py # 收集 GitHub 上带产品页的仓库
-├── preview_site.sh             # 本地预览
-├── publish_site.sh             # 本地一键发布到 gh-pages
-└── .github/workflows/hugo.yml  # GitHub Actions 自动构建与部署
+│   ├── build_site.sh             # 解析域名并构建生产站点
+│   ├── resolve_site_url.py       # 从 Pages 配置 / CNAME 解析站点地址
+│   └── sync_github_products.py   # 收集 GitHub 上带产品页的仓库
+├── preview_site.sh               # 本地预览
+├── publish_site.sh               # 本地一键发布到 gh-pages
+└── .github/workflows/hugo.yml    # GitHub Actions 自动构建与部署
 ```
 
 ## 本地开发
 
 依赖：
 
-- Hugo extended ≥ 0.156（CI 固定使用 `0.165.0`）
+- Hugo extended ≥ 0.158（PaperMod 最低要求，CI 固定使用 `0.165.0`）
 - Git（用于拉取主题子模块）
 
 ```bash
@@ -83,6 +88,47 @@ PORT=8080 ./preview_site.sh
 
 > 仓库里不再写死站点域名。生产构建必须使用 `scripts/build_site.sh`，它会自动解析当前仓库实际配置的域名。
 
+## 主题与样式
+
+主题通过 Git submodule 引入：
+
+```text
+Orz/themes/PaperMod
+```
+
+PaperMod 负责：
+
+- 顶部导航与菜单
+- 深浅色主题切换
+- 博客列表与文章页
+- SEO、RSS、sitemap、搜索基础
+
+站点自己的设计系统位于：
+
+```text
+Orz/assets/css/extended/custom.css
+```
+
+主要覆盖：
+
+- PaperMod 的宽度、颜色、圆角、字体变量
+- 首页 Hero、产品卡片、产品全览页
+- 顶部导航的毛玻璃效果与选中态
+- 中文系统字体栈
+- 深色模式下的配色
+- 移动端响应式
+
+常用设计变量在文件顶部：
+
+```css
+--main-width: 1120px;
+--accent: #c81e3a;
+--theme: #f7f8fa;
+--entry: #ffffff;
+```
+
+修改主题变量即可整体调整主色、背景和内容宽度。
+
 ## 维护产品展示
 
 产品相关数据分两层：首页只展示精选产品，完整清单放在产品全览页。
@@ -97,7 +143,7 @@ PORT=8080 ./preview_site.sh
   description: 详细介绍
   url: https://example.com
   icon: "🚀"          # 卡片图标（emoji）
-  category: App      # App / 站点 / 内容 ...
+  category: App      # App / 工具 / 游戏 / 站点 / 内容 ...
   status: 已上架      # 可选状态标签
   tags: ["Swift", "iOS"]
   featured: true     # 是否在首页展示
@@ -148,19 +194,17 @@ GITHUB_TOKEN=ghp_xxx python3 scripts/sync_github_products.py
 python3 scripts/resolve_site_url.py --json
 ```
 
-如需临时覆盖，也可以在 GitHub 仓库的 **Variables** 中设置 `SITE_URL` / `SITE_CNAME`，或使用环境变量：
+如需临时覆盖，可以在 GitHub 仓库的 **Variables** 中设置 `SITE_URL` / `SITE_CNAME`，或使用环境变量：
+
+```bash
+SITE_URL=https://example.com/ ./scripts/build_site.sh
+```
 
 构建时会自动：
 
 - 将解析出的地址作为 Hugo `--baseURL`
 - 若配置了自定义域名，生成 `Orz/public/CNAME`
 - 若没有自定义域名，则不生成 CNAME，使用 GitHub Pages 默认地址
-
-临时覆盖域名：
-
-```bash
-SITE_URL=https://example.com/ ./scripts/build_site.sh
-```
 
 ## 自动化流程
 
@@ -171,7 +215,7 @@ SITE_URL=https://example.com/ ./scripts/build_site.sh
 - **push 到 `main`**：构建站点 → 部署到 `gh-pages` 分支（`force_orphan`，保持分支干净）
 - **Pull Request**：只构建并检查产物，不部署，用于提前发现构建错误
 - **手动触发**：Actions 页面 `Run workflow`
-- 只在 `Orz/**`、发布脚本或工作流本身变化时触发
+- 只在 `Orz/**`、`scripts/**`、发布脚本或工作流本身变化时触发
 - 使用 `concurrency` 取消同一分支上的重复构建
 
 部署完成后 GitHub Pages 会自动更新为仓库 **Settings → Pages** 中配置的域名。
@@ -198,18 +242,20 @@ SITE_URL=https://example.com/ ./scripts/build_site.sh
 
 | 需求 | 位置 |
 | --- | --- |
-| 修改姓名、简介、技术栈 | `Orz/config.toml` 的 `[params.intro]`、`[params.home]` |
+| 修改姓名、简介、技术栈 | `Orz/config.toml` 的 `[params.home]` |
 | 增删首页精选产品 | `Orz/data/products.yaml` |
 | 增删产品全览内容 | `Orz/data/showcase.yaml` |
 | 同步 GitHub 产品候选 | `python3 scripts/sync_github_products.py` |
-| 修改侧边栏菜单 / 社交链接 | `Orz/config.toml` 的 `[menu.main]`、`[params.social]` |
-| 修改首页样式 | `Orz/static/css/custom.css` |
+| 修改顶部菜单 / 社交链接 | `Orz/config.toml` 的 `[menu.main]`、`[params.socialIcons]` |
+| 修改整体视觉与组件 | `Orz/assets/css/extended/custom.css` |
 | 修改域名 | GitHub **Settings → Pages → Custom domain**；构建时自动读取，无需改代码 |
 | 临时覆盖域名 | `SITE_URL=https://example.com/ ./scripts/build_site.sh` |
-| 修改备案信息 | `Orz/layouts/partials/footer.html` 与 `config.toml` |
+| 修改备案信息 | `Orz/config.toml` 的 `[params.footer]` |
 
 ## 技术说明
 
-- 主题通过 Git submodule 引入；自定义样式和模板都放在项目目录中覆盖，升级主题不会丢失。
-- 主题原 `tweet-single` 短代码使用了已移除的 `getJSON`，项目内已用 `resources.GetRemote` 覆盖实现，因此可以跟随新版 Hugo。
+- 主题通过 Git submodule 引入；自定义样式和模板都放在项目目录中，升级主题不会丢失。
+- 首页与产品全览页均为数据驱动，内容维护在 `Orz/data/` 与 `Orz/content/`。
+- 站点使用系统字体栈，不依赖 Google Fonts，国内访问更稳定。
+- 深浅色主题由 PaperMod 提供，自定义组件使用 CSS 变量自动适配。
 - 站点构建无需 Node.js，产物为纯静态文件。

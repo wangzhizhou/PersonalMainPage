@@ -1,8 +1,9 @@
 ---
-title: "👨🏻‍💻 个人简介"
+title: "关于我"
 date: 2020-02-29T21:52:53+08:00
 draft: false
 description: "王志舟（Joker），iOS / Swift 开发者，这里是他的个人主页与产品展示。"
+hideMeta: true
 ---
 
 你好，我是**王志舟**，网名 **Joker**，一名 iOS 开发者。

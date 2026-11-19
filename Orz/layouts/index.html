@@ -1,15 +1,15 @@
-{{ partial "header" .}}
-
+{{ define "main" }}
 {{ partial "home/hero" . }}
 
 {{ with hugo.Data.products }}
   <section class="home-section" id="products">
-    <div class="home-section-head home-section-head-row">
+    <div class="section-head">
       <div>
-        <h2>{{ $.Site.Params.home.productsTitle | default "🚀 产品与项目" }}</h2>
-        <p>{{ $.Site.Params.home.productsSubtitle }}</p>
+        <p class="section-eyebrow">PRODUCTS &amp; PROJECTS</p>
+        <h2>{{ $.Site.Params.home.productsTitle | default "🚀 精选产品" }}</h2>
+        <p class="section-subtitle">{{ $.Site.Params.home.productsSubtitle }}</p>
       </div>
-      <a class="home-more" href="{{ "/products/" | relURL }}">全部产品 →</a>
+      <a class="text-link" href="{{ "/products/" | relURL }}">全部产品 →</a>
     </div>
     <div class="product-grid">
       {{ range where . "featured" "ne" false }}
@@ -21,22 +21,50 @@
 
 {{ with .Content }}
   <section class="home-section home-about">
-    {{ . }}
+    <div class="section-head">
+      <div>
+        <p class="section-eyebrow">ABOUT</p>
+        <h2>关于本站</h2>
+      </div>
+      <a class="text-link" href="{{ "/about/" | relURL }}">了解更多 →</a>
+    </div>
+    <div class="home-about-content md-content">
+      {{ . }}
+    </div>
   </section>
 {{ end }}
 
 {{ $posts := where site.RegularPages "Type" "post" }}
 {{ if gt (len $posts) 0 }}
-  <section class="home-section" id="latest">
-    <div class="home-section-head">
-      <h2>📔 最新文章</h2>
+  <section class="home-section">
+    <div class="section-head">
+      <div>
+        <p class="section-eyebrow">WRITING</p>
+        <h2>最近文章</h2>
+      </div>
+      <a class="text-link" href="{{ "/post/" | relURL }}">全部文章 →</a>
     </div>
-    <div class="post-list">
+    <div class="home-posts">
       {{ range first 3 $posts.ByDate.Reverse }}
-        {{ partial "post/item" . }}
+        <article class="home-post">
+          <a href="{{ .RelPermalink }}">
+            <p class="home-post-date">{{ .Date | time.Format "2006-01-02" }}</p>
+            <h3>{{ .Title }}</h3>
+            <p>{{ .Summary | plainify | truncate 96 }}</p>
+            <span class="home-post-more">阅读全文 →</span>
+          </a>
+        </article>
       {{ end }}
     </div>
   </section>
 {{ end }}
 
-{{ partial "footer" .}}
+<section class="home-cta">
+  <div>
+    <p class="section-eyebrow">CONTACT</p>
+    <h2>一起做点有意思的东西</h2>
+    <p>如果你对我的产品感兴趣，或者想聊聊 iOS、Swift 和独立开发，欢迎随时联系。</p>
+  </div>
+  <a class="btn btn-primary" href="mailto:{{ .Site.Params.contact.email }}">邮件联系</a>
+</section>
+{{ end }}
