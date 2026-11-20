@@ -712,6 +712,7 @@ a {
 }
 
 .group-toggle-icon {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -719,17 +720,29 @@ a {
   height: 24px;
   border: 1px solid var(--border);
   border-radius: 50%;
-  color: var(--accent);
-  font-size: 16px;
-  line-height: 1;
 }
 
-.group-toggle-icon::before {
-  content: "+";
+.group-toggle-icon::before,
+.group-toggle-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 1.5px;
+  border-radius: 999px;
+  background: var(--accent);
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.showcase-group[open] .group-toggle-icon::before {
-  content: "−";
+.group-toggle-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.showcase-group[open] .group-toggle-icon::after {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(90deg) scaleX(0);
 }
 
 .group-head:hover .group-toggle-icon {
