@@ -19,14 +19,19 @@
   {{ end }}
 </nav>
 
-{{ range $groups }}
-  <section class="showcase-group" id="{{ .id }}">
-    <div class="group-head">
-      <div class="group-title">
-        <p class="section-eyebrow">{{ .icon }} @{{ .handle }}</p>
-        <h2>{{ .name }}</h2>
-        <p>{{ .description }}</p>
-      </div>
+{{ range $index, $group := $groups }}
+  <details class="showcase-group" id="{{ .id }}"{{ if eq $index 0 }} open{{ end }}>
+    <summary class="group-head">
+      <span class="section-eyebrow group-eyebrow">{{ .icon }} @{{ .handle }}</span>
+      <h2 class="group-name">{{ .name }}</h2>
+      <span class="group-desc">{{ .description }}</span>
+      <span class="group-toggle">
+        <span>{{ len .products }} 个产品</span>
+        <span class="group-toggle-icon" aria-hidden="true"></span>
+      </span>
+    </summary>
+
+    <div class="group-body">
       <div class="group-links">
         {{ with .site }}
           <a class="btn btn-ghost btn-sm" href="{{ . }}" target="_blank" rel="noopener">官网 ↗</a>
@@ -35,14 +40,14 @@
           <a class="btn btn-ghost btn-sm" href="{{ . }}" target="_blank" rel="noopener">GitHub ↗</a>
         {{ end }}
       </div>
-    </div>
 
-    <div class="showcase-grid">
-      {{ range .products }}
-        {{ partial "products/card" . }}
-      {{ end }}
+      <div class="showcase-grid">
+        {{ range .products }}
+          {{ partial "products/card" . }}
+        {{ end }}
+      </div>
     </div>
-  </section>
+  </details>
 {{ end }}
 
 <p class="page-note">项目清单整理自 GitHub，最近同步：{{ $data.updated }}。部分产品页位于自定义域名，访问速度可能受网络环境影响。</p>

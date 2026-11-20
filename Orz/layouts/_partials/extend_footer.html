@@ -37,3 +37,36 @@
     </p>
   </div>
 </footer>
+
+<script>
+  (function () {
+    function openGroup(hash) {
+      if (!hash || hash.indexOf("#") !== 0) return;
+      var target = document.querySelector(hash);
+      if (!target || target.tagName !== "DETAILS") return;
+
+      // 先关闭其他分组，再展开目标，避免页面高度变化导致滚动位置偏移
+      document.querySelectorAll("details.showcase-group[open]").forEach(function (group) {
+        if (group !== target) group.open = false;
+      });
+      target.open = true;
+    }
+
+    document.addEventListener(
+      "click",
+      function (event) {
+        var target = event.target;
+        var link = target instanceof Element ? target.closest(".group-nav a") : null;
+        if (!link) return;
+        openGroup(link.getAttribute("href"));
+      },
+      true
+    );
+
+    window.addEventListener("hashchange", function () {
+      openGroup(window.location.hash);
+    });
+
+    openGroup(window.location.hash);
+  })();
+</script>

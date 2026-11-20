@@ -653,32 +653,98 @@ a {
   scroll-margin-top: calc(var(--header-height) + 24px);
 }
 
+.showcase-group > summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.showcase-group > summary::-webkit-details-marker {
+  display: none;
+}
+
+.showcase-group > summary:focus-visible {
+  border-radius: 10px;
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
 .group-head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 0 24px;
   padding-bottom: 18px;
   border-bottom: 1px solid var(--border);
 }
 
-.group-title h2 {
-  margin: 0 0 6px;
-  font-size: 26px;
+.group-eyebrow {
+  grid-column: 1;
+  grid-row: 1;
+  margin-bottom: 6px;
 }
 
-.group-title p {
-  margin: 0;
+.group-name {
+  grid-column: 1;
+  grid-row: 2;
+  margin: 0 0 6px;
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.group-desc {
+  grid-column: 1;
+  grid-row: 3;
   color: var(--secondary);
   font-size: 14px;
   line-height: 1.7;
+}
+
+.group-toggle {
+  display: inline-flex;
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  align-self: center;
+  align-items: center;
+  gap: 8px;
+  color: var(--secondary);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.group-toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--accent);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.group-toggle-icon::before {
+  content: "+";
+}
+
+.showcase-group[open] .group-toggle-icon::before {
+  content: "−";
+}
+
+.group-head:hover .group-toggle-icon {
+  border-color: var(--accent);
+}
+
+.group-body {
+  padding-top: 20px;
 }
 
 .group-links {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-bottom: 16px;
 }
 
 .showcase-grid {
@@ -1187,8 +1253,15 @@ a {
   }
 
   .group-head {
-    flex-direction: column;
-    gap: 12px;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .group-toggle {
+    grid-column: 1;
+    grid-row: 4;
+    justify-self: start;
+    margin-top: 12px;
   }
 
   .post-title,
