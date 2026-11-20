@@ -9,9 +9,10 @@
 
 ## 设计方向
 
-- **产品优先**：首页只保留个人介绍、6 个精选产品和文章入口
+- **产品优先**：首页只保留个人介绍、6 个精选产品、简历入口和文章入口
 - **低信息密度**：产品页按组织折叠，功能详情再按产品折叠
 - **博客为辅**：保留 `/post/` 文章入口，但不再是站点主结构
+- **简历托管**：`/resume/` 提供网页简历、PDF 下载与打印导出
 - **现代视觉**：PaperMod 提供顶部导航、深浅色切换、响应式布局和 SEO 基础
 - **中文友好**：系统字体栈 + 16px 正文，避免依赖 Google Fonts
 - **可维护**：产品数据与视觉层分离，改内容不需要改模板
@@ -20,6 +21,7 @@
 
 - `/`：Hero 个人介绍、6 个精选产品、最近文章（有文章时出现）
 - `/products/`：产品与项目全览，按组织分组；默认展开第一组，功能详情再按产品折叠
+- `/resume/`：网页简历，支持下载 PDF 或打印导出
 - `/about/`：个人简介与产品清单
 - `/post/`：文章列表（博客为辅）
 - `/404.html`：自定义 404 页面
@@ -32,10 +34,12 @@
 │   ├── config.toml               # 站点配置（PaperMod 参数、菜单、社交链接）
 │   ├── content/                  # 页面内容（Markdown）
 │   │   ├── about.md              # 关于我
+│   │   ├── resume.md             # 简历页入口（type: resume）
 │   │   ├── products/_index.md    # 产品全览页内容
 │   │   └── post/_index.md        # 文章索引
 │   ├── data/
 │   │   ├── products.yaml         # 首页精选产品数据
+│   │   ├── resume.yaml           # 简历内容（技能 / 项目 / 链接）
 │   │   └── showcase.yaml         # 产品全览页数据（分组 / 功能 / 外链）
 │   ├── assets/css/extended/
 │   │   └── custom.css            # 自定义设计系统与组件样式
@@ -43,13 +47,15 @@
 │   │   ├── index.html            # 自定义首页布局
 │   │   ├── 404.html              # 自定义 404
 │   │   ├── products/list.html    # 产品全览页布局
+│   │   ├── resume/single.html    # 简历页布局与打印样式
 │   │   ├── _partials/
 │   │   │   └── extend_footer.html # 自定义页脚
 │   │   └── partials/
 │   │       ├── home/             # 首页 Hero 与产品卡片
 │   │       └── products/         # 产品全览卡片
 │   ├── static/
-│   │   └── images/               # 头像、favicon、备案图标
+│   │   ├── images/               # 头像、favicon、备案图标
+│   │   └── resume/               # 简历 PDF
 │   └── themes/PaperMod/          # 主题子模块，不要直接修改
 ├── scripts/
 │   ├── build_site.sh             # 解析域名并构建生产站点
@@ -89,6 +95,34 @@ PORT=8080 ./preview_site.sh
 ```
 
 > 仓库里不再写死站点域名。生产构建必须使用 `scripts/build_site.sh`，它会自动解析当前仓库实际配置的域名。
+
+## 简历托管
+
+简历页地址：<https://profile.jokerhub.cn/resume/>
+
+- 页面内容在 `Orz/data/resume.yaml`，修改技能、项目、链接即可
+- 页面布局在 `Orz/layouts/resume/single.html`
+- PDF 文件放在 `Orz/static/resume/wangzhizhou-resume.pdf`
+- 构建时如果 PDF 存在，会自动显示「下载 PDF」按钮；不存在时仍可用「打印 / 导出 PDF」
+
+更新简历后重新生成 PDF：
+
+```bash
+# 1. 使用线上域名构建，保证 PDF 内部链接指向正式站点
+./scripts/build_site.sh
+
+# 2. 启动本地静态服务
+python3 -m http.server 8080 --directory Orz/public
+
+# 3. 打开 http://localhost:8080/resume/
+#    点击「打印 / 导出 PDF」，在打印对话框中选择「存储为 PDF」
+#    将文件覆盖保存到 Orz/static/resume/wangzhizhou-resume.pdf
+
+# 4. 重新构建，把新 PDF 同步到产物目录
+./scripts/build_site.sh
+```
+
+打印样式会自动隐藏导航、页脚和按钮，按 A4 单页排版输出。
 
 ## 主题与样式
 

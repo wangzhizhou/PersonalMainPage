@@ -96,6 +96,13 @@ pygmentsCodeFences = true
   weight = 20
 
 [[menu.main]]
+  identifier = "resume"
+  name = "简历"
+  title = "简历"
+  url = "/resume/"
+  weight = 25
+
+[[menu.main]]
   identifier = "about"
   name = "关于"
   title = "关于我"

@@ -1,0 +1,78 @@
+# 简历页数据
+# 修改这里即可更新 /resume/ 页面；PDF 文件放在 Orz/static/resume/ 下。
+# 更新内容后，打开 /resume/ 点击「打印 / 导出 PDF」，替换旧 PDF 即可。
+
+updated: "2026-11"
+
+name: 王志舟
+alias: Joker
+role: iOS / Swift 开发者 | 独立开发者
+summary: >-
+  白天写 Swift，晚上折腾服务器、博客和芯片音乐。关注开发者工具、macOS 效率工具、
+  Swift 服务端与自动化，喜欢把想法做成能跑起来、能长期维护的产品。
+
+pdf: /resume/wangzhizhou-resume.pdf
+pdfName: 王志舟-简历.pdf
+
+links:
+  - label: 邮箱
+    url: mailto:824219521@qq.com
+  - label: GitHub
+    url: https://github.com/wangzhizhou
+  - label: 博客
+    url: https://blog.jokerhub.cn
+  - label: 产品全览
+    url: /products/
+
+skills:
+  - label: 客户端
+    items: [Swift, iOS, macOS]
+  - label: 服务端
+    items: [Vapor, Swift, Python]
+  - label: 工具链
+    items: [Go, Rust, Shell, Git, GitHub Actions]
+  - label: 其他
+    items: [Godot, GDScript, Markdown, 静态站点]
+
+projects:
+  - name: APNs Helper
+    meta: macOS / iOS | Swift | 已上架 App Store
+    description: 面向 APNs 开发与联调的推送调试工具，支持多种推送类型、Payload 工作台与 JWT 凭据管理，帮助开发者快速定位通知未送达或解码异常。
+    links:
+      - label: App Store
+        url: https://apps.apple.com/cn/app/apns-helper/id6443608175
+      - label: 开发文档
+        url: https://wangzhizhou.github.io/APNs-Helper/documentation/apns_helper_doc/
+      - label: 源码
+        url: https://github.com/wangzhizhou/APNs-Helper
+
+  - name: 萤火虫 Lampyris
+    meta: macOS | Rust | 输入法
+    description: 五笔优先、拼音兜底的 macOS 中文输入法，核心零网络、零遥测，安装包轻量且开源可审计，持续维护词库与输入体验。
+    links:
+      - label: 产品页
+        url: https://input.jokerhub.cn/
+      - label: 源码
+        url: https://github.com/EasyIndie/EasyInputMethod
+
+  - name: EasyWork
+    meta: Go | CLI | 跨平台
+    description: 用一份 config.toml 安装并管理 Shell、Git、Vim、gh 与 AI 工具的跨平台开发环境配置器，以 Go 静态单二进制交付。
+    links:
+      - label: 产品页
+        url: https://easywork.jokerhub.cn/
+
+  - name: OrzMusic
+    meta: Swift / Vapor | Web 服务
+    description: 面向 KeyGen Music、芯片音乐和模块音乐的 Web 播放服务，整合曲库管理、搜索、播放队列与多格式音频播放。
+    links:
+      - label: 在线服务
+        url: https://music.jokerhub.cn
+
+writing:
+  - name: Vapor 大型教程
+    meta: Swift 服务端中文系列教程
+    url: https://vapor.jokerhub.cn
+  - name: Joker Blog
+    meta: 技术、工作与生活记录
+    url: https://blog.jokerhub.cn
