@@ -2,23 +2,15 @@
 {{ $data := hugo.Data.showcase }}
 {{ $groups := $data.groups }}
 {{ $productCount := 0 }}
-{{ $linkCount := 0 }}
 {{ range $groups }}
   {{ $productCount = add $productCount (len .products) }}
-  {{ range .products }}
-    {{ $linkCount = add $linkCount (len .links) }}
-  {{ end }}
 {{ end }}
 
 <section class="page-hero">
   <p class="section-eyebrow">PRODUCTS &amp; PROJECTS</p>
   <h1>{{ .Title }}</h1>
   <div class="page-intro">{{ .Content }}</div>
-  <div class="page-stats" aria-label="项目统计">
-    <div><strong>{{ len $groups }}</strong><span>项目来源</span></div>
-    <div><strong>{{ $productCount }}</strong><span>产品 / 项目</span></div>
-    <div><strong>{{ $linkCount }}</strong><span>外链入口</span></div>
-  </div>
+  <p class="page-meta">{{ len $groups }} 个来源 · {{ $productCount }} 个项目</p>
 </section>
 
 <nav class="group-nav" aria-label="项目分组">

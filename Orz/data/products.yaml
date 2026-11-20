@@ -80,7 +80,7 @@
   category: 站点
   status: 持续更新
   tags: ["MkDocs", "写作", "技术"]
-  featured: true
+  featured: false
 
 - name: Vapor 教程
   tagline: 用 Swift 写服务端
@@ -90,4 +90,4 @@
   category: 内容
   status: 在线阅读
   tags: ["Swift", "Vapor", "后端"]
-  featured: true
+  featured: false

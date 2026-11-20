@@ -5,31 +5,16 @@
   <section class="home-section" id="products">
     <div class="section-head">
       <div>
-        <p class="section-eyebrow">PRODUCTS &amp; PROJECTS</p>
-        <h2>{{ $.Site.Params.home.productsTitle | default "🚀 精选产品" }}</h2>
+        <p class="section-eyebrow">PRODUCTS</p>
+        <h2>{{ $.Site.Params.home.productsTitle | default "精选产品" }}</h2>
         <p class="section-subtitle">{{ $.Site.Params.home.productsSubtitle }}</p>
       </div>
       <a class="text-link" href="{{ "/products/" | relURL }}">全部产品 →</a>
     </div>
     <div class="product-grid">
-      {{ range where . "featured" "ne" false }}
+      {{ range where . "featured" true }}
         {{ partial "home/product-card" . }}
       {{ end }}
-    </div>
-  </section>
-{{ end }}
-
-{{ with .Content }}
-  <section class="home-section home-about">
-    <div class="section-head">
-      <div>
-        <p class="section-eyebrow">ABOUT</p>
-        <h2>关于本站</h2>
-      </div>
-      <a class="text-link" href="{{ "/about/" | relURL }}">了解更多 →</a>
-    </div>
-    <div class="home-about-content md-content">
-      {{ . }}
     </div>
   </section>
 {{ end }}
@@ -58,13 +43,4 @@
     </div>
   </section>
 {{ end }}
-
-<section class="home-cta">
-  <div>
-    <p class="section-eyebrow">CONTACT</p>
-    <h2>一起做点有意思的东西</h2>
-    <p>如果你对我的产品感兴趣，或者想聊聊 iOS、Swift 和独立开发，欢迎随时联系。</p>
-  </div>
-  <a class="btn btn-primary" href="mailto:{{ .Site.Params.contact.email }}">邮件联系</a>
-</section>
 {{ end }}

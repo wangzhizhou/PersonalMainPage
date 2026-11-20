@@ -50,15 +50,14 @@ pygmentsCodeFences = true
     policeIcon = "/images/ghs.png"
 
   [params.home]
-    eyebrow = "👋 你好，我是"
+    eyebrow = "你好，我是"
     name = "王志舟"
     alias = "Joker"
-    status = "独立开发者 · 在做一个人的产品工作室"
-    tagline = "iOS / Swift / 全栈折腾"
-    description = "白天写 Swift，晚上折腾服务器、博客和芯片音乐。这里汇集了我开发的产品、长期维护的站点，以及一些技术与生活记录。"
-    focus = ["Swift", "iOS", "Vapor", "Minecraft", "Chiptune"]
-    productsTitle = "🚀 精选产品"
-    productsSubtitle = "从 App 到站点，先看几个最近在做的；完整清单见产品全览。"
+    status = "独立开发者 · iOS / Swift"
+    tagline = "全栈折腾 · Minecraft · Chiptune"
+    description = "白天写 Swift，晚上折腾服务器、博客和芯片音乐。"
+    productsTitle = "精选产品"
+    productsSubtitle = "几个最近在做的产品，完整清单见产品全览。"
     avatar = "/images/avatar.jpg"
 
   [params.contact]

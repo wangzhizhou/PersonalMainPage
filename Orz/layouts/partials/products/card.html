@@ -9,19 +9,22 @@
   </div>
 
   <p class="showcase-tagline">{{ .tagline }}</p>
-  <p class="showcase-desc">{{ .description }}</p>
-
-  {{ with .features }}
-    <ul class="showcase-features">
-      {{ range . }}<li>{{ . }}</li>{{ end }}
-    </ul>
-  {{ end }}
 
   {{ with .tags }}
     <div class="showcase-tags">
       {{ range . }}<span>{{ . }}</span>{{ end }}
     </div>
   {{ end }}
+
+  <details class="showcase-more">
+    <summary>查看详情</summary>
+    {{ with .description }}<p class="showcase-desc">{{ . }}</p>{{ end }}
+    {{ with .features }}
+      <ul class="showcase-features">
+        {{ range . }}<li>{{ . }}</li>{{ end }}
+      </ul>
+    {{ end }}
+  </details>
 
   {{ with .links }}
     <div class="showcase-links">

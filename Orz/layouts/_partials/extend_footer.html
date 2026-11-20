@@ -3,27 +3,17 @@
   <div class="site-footer-inner">
     <div class="footer-brand">
       <a class="footer-logo" href="{{ "" | relLangURL }}">JokerHub<span>.</span></a>
-      <p>{{ site.Params.home.tagline }} · {{ site.Params.home.status }}</p>
-      <div class="footer-social">
-        {{ partial "social_icons.html" (dict "align" "left") }}
-      </div>
+      <p>{{ site.Params.home.status }}</p>
     </div>
 
-    <nav class="footer-col" aria-label="页脚导航">
-      <p class="footer-heading">导航</p>
+    <nav class="footer-nav" aria-label="页脚导航">
       {{ range site.Menus.main }}
         <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
       {{ end }}
     </nav>
 
-    <div class="footer-col">
-      <p class="footer-heading">连接</p>
-      {{ range site.Params.socialIcons }}
-        <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title | default .name }} ↗</a>
-      {{ end }}
-      {{ with site.Params.blogURL }}
-        <a href="{{ . }}" target="_blank" rel="noopener noreferrer">博客 ↗</a>
-      {{ end }}
+    <div class="footer-social">
+      {{ partial "social_icons.html" (dict "align" "left") }}
     </div>
   </div>
 

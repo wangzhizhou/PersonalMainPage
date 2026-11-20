@@ -6,7 +6,6 @@
   </div>
   <h3>{{ .name }}</h3>
   <p class="product-tagline">{{ .tagline }}</p>
-  <p class="product-desc">{{ .description }}</p>
   {{ with .tags }}
     <div class="product-tags">
       {{ range . }}<span>{{ . }}</span>{{ end }}
