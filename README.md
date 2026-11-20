@@ -132,7 +132,7 @@ python3 -m http.server 8080 --directory Orz/public
 
 - 图标名写在 `Orz/data/products.yaml` 和 `Orz/data/showcase.yaml` 的 `icon` 字段
 - 图标路径映射在 `Orz/layouts/partials/icon.html`
-- Lucide 图标使用 ISC License，部分源自 Feather 的图标为 MIT；完整许可证见 `Orz/static/icons/LICENSE`
+- Lucide 图标使用 ISC License，部分源自 Feather 的图标为 MIT；完整许可证见 `Orz/static/icons/LICENSE.txt`
 - 未找到图标名时会回退到 `package`
 
 新增图标时，从 Lucide 复制 SVG 内部的路径节点，追加到 `icon.html` 的 `$icons` 字典即可；不需要引入外部图标库或字体。
