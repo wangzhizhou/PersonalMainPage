@@ -51,9 +51,11 @@
 │   │   ├── _partials/
 │   │   │   └── extend_footer.html # 自定义页脚
 │   │   └── partials/
+│   │       ├── icon.html         # Lucide 内联 SVG 图标映射
 │   │       ├── home/             # 首页 Hero 与产品卡片
 │   │       └── products/         # 产品全览卡片
 │   ├── static/
+│   │   ├── icons/                # Lucide 图标许可证
 │   │   ├── images/               # 头像、favicon、备案图标
 │   │   └── resume/               # 简历 PDF
 │   └── themes/PaperMod/          # 主题子模块，不要直接修改
@@ -124,6 +126,17 @@ python3 -m http.server 8080 --directory Orz/public
 
 打印样式会自动隐藏导航、页脚和按钮，按 A4 单页排版输出。
 
+## 图标
+
+产品与项目图标使用 [Lucide](https://lucide.dev/) 的内联 SVG，不依赖系统 emoji，因此在 macOS、Windows、Linux 和移动端显示一致。
+
+- 图标名写在 `Orz/data/products.yaml` 和 `Orz/data/showcase.yaml` 的 `icon` 字段
+- 图标路径映射在 `Orz/layouts/partials/icon.html`
+- Lucide 图标使用 ISC License，部分源自 Feather 的图标为 MIT；完整许可证见 `Orz/static/icons/LICENSE`
+- 未找到图标名时会回退到 `package`
+
+新增图标时，从 Lucide 复制 SVG 内部的路径节点，追加到 `icon.html` 的 `$icons` 字典即可；不需要引入外部图标库或字体。
+
 ## 主题与样式
 
 主题通过 Git submodule 引入：
@@ -180,7 +193,7 @@ Orz/assets/css/extended/custom.css
   tagline: 一句话介绍
   description: 详细介绍
   url: https://example.com
-  icon: "🚀"          # 卡片图标（emoji）
+  icon: "rocket"      # 卡片图标（Lucide 图标名）
   category: App      # App / 工具 / 游戏 / 站点 / 内容 ...
   status: 已上架      # 可选状态标签
   tags: ["Swift", "iOS"]

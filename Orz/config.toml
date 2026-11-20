@@ -62,7 +62,7 @@ pygmentsCodeFences = true
 
   [params.contact]
     email = "824219521@qq.com"
-    text = "✉️ 邮件联系"
+    text = "邮件联系"
 
 [[params.socialIcons]]
   name = "github"

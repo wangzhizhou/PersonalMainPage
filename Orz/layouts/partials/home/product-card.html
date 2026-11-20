@@ -1,7 +1,7 @@
 {{- /* 入参：产品数据 map（来自 data/products.yaml） */ -}}
 <article class="product-card">
   <div class="product-card-top">
-    <span class="product-icon" aria-hidden="true">{{ .icon | default "📦" }}</span>
+    <span class="product-icon" aria-hidden="true">{{ partial "icon" (.icon | default "package") }}</span>
     {{ with .status }}<span class="product-status">{{ . }}</span>{{ end }}
   </div>
   <h3>{{ .name }}</h3>

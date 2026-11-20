@@ -1,7 +1,7 @@
 {{- /* 入参：产品数据 map（来自 data/showcase.yaml） */ -}}
 <article class="showcase-card">
   <div class="showcase-card-head">
-    <span class="showcase-icon" aria-hidden="true">{{ .icon | default "📦" }}</span>
+    <span class="showcase-icon" aria-hidden="true">{{ partial "icon" (.icon | default "package") }}</span>
     <div class="showcase-heading">
       <h3>{{ .name }}</h3>
       {{ with .status }}<span class="showcase-status">{{ . }}</span>{{ end }}

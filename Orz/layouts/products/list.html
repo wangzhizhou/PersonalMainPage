@@ -15,14 +15,14 @@
 
 <nav class="group-nav" aria-label="项目分组">
   {{ range $groups }}
-    <a href="#{{ .id }}">{{ .icon }} {{ .name }} <span>{{ len .products }}</span></a>
+    <a href="#{{ .id }}">{{ partial "icon" .icon }} {{ .name }} <span>{{ len .products }}</span></a>
   {{ end }}
 </nav>
 
 {{ range $index, $group := $groups }}
   <details class="showcase-group" id="{{ .id }}"{{ if eq $index 0 }} open{{ end }}>
     <summary class="group-head">
-      <span class="section-eyebrow group-eyebrow">{{ .icon }} @{{ .handle }}</span>
+      <span class="section-eyebrow group-eyebrow">{{ partial "icon" .icon }} @{{ .handle }}</span>
       <h2 class="group-name">{{ .name }}</h2>
       <span class="group-desc">{{ .description }}</span>
       <span class="group-toggle">

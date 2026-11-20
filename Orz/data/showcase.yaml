@@ -5,7 +5,7 @@
 # 字段说明：
 #   group.site / github    组织主页与 GitHub 主页
 #   product.name           产品名称
-#   product.icon           卡片图标（emoji）
+#   group.icon / product.icon  卡片图标（Lucide 图标名，见 layouts/partials/icon.html）
 #   product.status         状态标签，如版本号、「已上架」「持续更新」
 #   product.tagline        一句话介绍
 #   product.description    详细介绍
@@ -19,12 +19,12 @@ groups:
   - id: personal
     name: 个人项目
     handle: wangzhizhou
-    icon: "👤"
+    icon: "user-round"
     description: 个人 GitHub 账号下带独立产品页、文档页或上架渠道的项目。
     github: "https://github.com/wangzhizhou"
     products:
       - name: APNs Helper
-        icon: "🔔"
+        icon: "bell"
         status: 已上架 App Store
         tagline: APNs 推送调试与诊断工具
         description: 面向 APNs 开发与联调的 macOS / iOS 工具，发送真实推送请求并还原完整请求、响应与错误信息，快速定位通知未送达或解码异常。
@@ -46,7 +46,7 @@ groups:
             url: "https://github.com/wangzhizhou/APNs-Helper"
 
       - name: Vapor 大型教程
-        icon: "🌊"
+        icon: "waves"
         status: 在线阅读
         tagline: 用 Swift 实践 Vapor 服务端开发
         description: 对标 Flask Mega-Tutorial 的 Vapor 中文系列教程，从环境搭建、REST API、数据库、认证一路写到 Leaf 模板与生产部署。
@@ -63,7 +63,7 @@ groups:
             url: "https://github.com/wangzhizhou/The-Vapor-Mega-Tutorial"
 
       - name: Joker Blog
-        icon: "📔"
+        icon: "notebook-pen"
         status: 持续更新
         tagline: 记录技术与生活的个人博客
         description: 基于 MkDocs 的个人博客，记录 iOS / Swift、服务端、工具链，以及工作与生活中的各种体验和感悟。
@@ -80,7 +80,7 @@ groups:
             url: "https://github.com/wangzhizhou/JokerBlog"
 
       - name: DebugSettings
-        icon: "🛠️"
+        icon: "wrench"
         status: 开源组件
         tagline: iOS 调试设置面板组件
         description: 用于简化 iOS App 内调试入口的 Swift 组件，把开关、按钮和子页面统一收拢到调试设置面板。
@@ -99,13 +99,13 @@ groups:
   - id: easyopc
     name: EasyOPC
     handle: EasyIndie
-    icon: "🧑‍💻"
+    icon: "code-2"
     description: AI 时代一人公司基础设施建设，覆盖输入法、效率工具、游戏生产与内容流水线。
     site: "https://opc.jokerhub.cn"
     github: "https://github.com/EasyIndie"
     products:
       - name: 萤火虫 Lampyris
-        icon: "🪲"
+        icon: "keyboard"
         status: v1.3.1
         tagline: 默认离线的中文输入法
         description: 默认离线的 macOS 中文输入法，五笔优先、拼音兜底，核心零网络、零遥测，安装包轻量且开源可审计。
@@ -125,7 +125,7 @@ groups:
             url: "https://github.com/EasyIndie/EasyInputMethod"
 
       - name: 谷蹬 EasyAPIClock
-        icon: "⏰"
+        icon: "alarm-clock"
         status: v1.0.0
         tagline: DeepSeek API 峰谷价格时钟
         description: 常驻 macOS 菜单栏的 DeepSeek API 峰谷价格时钟，显示当前价格时段、模型单价差异与下一次切换倒计时。
@@ -145,7 +145,7 @@ groups:
             url: "https://github.com/EasyIndie/EasyAPIClock"
 
       - name: EasyWork
-        icon: "🧰"
+        icon: "toolbox"
         status: v0.4.4
         tagline: 一份配置搞定开发环境
         description: 用一份 config.toml 安装并管理 Shell、Git、Vim、gh 与 AI 工具的跨平台开发环境配置器，Go 静态单二进制。
@@ -165,7 +165,7 @@ groups:
             url: "https://github.com/EasyIndie/EasyWork"
 
       - name: Puzzle Core
-        icon: "🎲"
+        icon: "dice-5"
         status: 在线试玩
         tagline: AI + Godot 自动化游戏生产
         description: EasyGodot Game Factory 的试点游戏：3D 几何翻滚解谜，用一条可复现、可验证的流水线从关卡生成走到 Web 发布。
@@ -183,7 +183,7 @@ groups:
             url: "https://github.com/EasyIndie/EasyGodot"
 
       - name: EasyUploader
-        icon: "🎬"
+        icon: "clapperboard"
         status: 自用工具
         tagline: 自动化视频上传与发布
         description: 面向个人频道的视频发布工具，通过 YouTube API 上传并管理自有视频，是自动化内容流水线的一部分。
@@ -200,7 +200,7 @@ groups:
             url: "https://github.com/EasyIndie/EasyContentCreator"
 
       - name: 毕业生食谱
-        icon: "🥟"
+        icon: "cooking-pot"
         status: 持续更新
         tagline: 可离线查看的私人食谱库
         description: 一个男生在家学做饭的私人食谱库与面食短视频脚本，附一个可离线访问的静态站点。
@@ -219,13 +219,13 @@ groups:
   - id: orzmc
     name: OrzMC
     handle: OrzMC
-    icon: "⛏️"
+    icon: "pickaxe"
     description: Minecraft 服务器生态：客户端、Paper 插件、世界备份与运维工具。
     site: "https://orzmc.jokerhub.cn"
     github: "https://github.com/OrzMC"
     products:
       - name: OrzMC 2.0
-        icon: "🧱"
+        icon: "blocks"
         status: v2.18.1
         tagline: 跨平台 Minecraft 启动与部署
         description: 一条命令安装与启动的 Minecraft 客户端启动 / 服务端部署工具，多版本并存并自动托管 Java 运行时。
@@ -245,7 +245,7 @@ groups:
             url: "https://github.com/OrzMC/OrzPythonMC"
 
       - name: OrzMCBackup
-        icon: "💾"
+        icon: "database-backup"
         status: 持续更新
         tagline: Minecraft 世界优化与备份
         description: 按玩家活跃时间逐区块裁剪世界体积，并提供优化备份与全量备份的合并恢复，让服务器备份更小、更快、更安全。
@@ -263,7 +263,7 @@ groups:
             url: "https://github.com/OrzMC/OrzMCBackup"
 
       - name: OrzMC Plugin
-        icon: "🤖"
+        icon: "bot"
         status: v1.0.30
         tagline: Paper 服务器管理与多平台机器人
         description: 统一 QQ / Telegram / Discord / 飞书 / 微信的 Paper 服务器管理插件，内置权限、白名单、跨服传送与运维能力。
@@ -283,7 +283,7 @@ groups:
             url: "https://github.com/OrzMC/OrzMCPlugin"
 
       - name: OrzMC App
-        icon: "🖥️"
+        icon: "monitor"
         status: v0.1.7
         tagline: macOS / iOS Minecraft 启动器
         description: 面向 macOS / iOS 的 Minecraft Java Edition 启动器与辅助应用，与 OrzMC 的 CLI 和服务端工具共享能力。
@@ -305,13 +305,13 @@ groups:
   - id: orzgeeker
     name: OrzGeeker
     handle: OrzGeeker
-    icon: "🎹"
+    icon: "piano"
     description: 芯片音乐（KeyGen / Chiptune）与 Swift / Apple 平台工具链。
     site: "https://music.jokerhub.cn"
     github: "https://github.com/OrzGeeker"
     products:
       - name: OrzMusic
-        icon: "🎧"
+        icon: "headphones"
         status: 在线服务
         tagline: 芯片音乐 Web 播放服务
         description: 面向 KeyGen Music、芯片音乐和模块音乐的 Web 播放服务，整合曲库管理、搜索、播放队列与多格式音频播放。
@@ -329,7 +329,7 @@ groups:
             url: "https://github.com/OrzGeeker/OrzMusic"
 
       - name: OrzReader
-        icon: "📄"
+        icon: "file-text"
         status: 开源
         tagline: 最简 iOS PDF 阅读器
         description: 为充分利用屏幕空间而开发的极简 iOS PDF 阅读器，解决 iBooks 不能按屏幕宽度缩放的问题。
@@ -348,7 +348,7 @@ groups:
             url: "https://github.com/OrzGeeker/OrzReader"
 
       - name: OrzSwiftDoc
-        icon: "📚"
+        icon: "book-open"
         status: 示例项目
         tagline: Swift DocC 文档发布示例
         description: 演示如何用 Swift DocC 编写文档、在本地预览并发布到 GitHub Pages 的示例项目。
